@@ -1,5 +1,6 @@
 [
   {
+    "id": "farkas-imre-szabolcs",
     "name": "Farkas Imre Szabolcs",
     "leagueApps": 0,
     "leagueGoals": 0,
@@ -8,6 +9,7 @@
     "totalGoals": 0
   },
   {
+    "id": "fej-r-szabolcs",
     "name": "Fejér Szabolcs",
     "leagueApps": 23,
     "leagueGoals": 2,
@@ -16,6 +18,7 @@
     "totalGoals": 2
   },
   {
+    "id": "hidi-barna",
     "name": "Hidi Barna",
     "leagueApps": 14,
     "leagueGoals": 6,
@@ -24,6 +27,7 @@
     "totalGoals": 6
   },
   {
+    "id": "kov-cs-alp-r-etele",
     "name": "Kovács Alpár Etele",
     "leagueApps": 38,
     "leagueGoals": 8,
@@ -32,6 +36,7 @@
     "totalGoals": 8
   },
   {
+    "id": "kov-cs-istv-n-tibor",
     "name": "Kovács István Tibor",
     "leagueApps": 24,
     "leagueGoals": 9,
@@ -40,6 +45,7 @@
     "totalGoals": 10
   },
   {
+    "id": "m-t-bence",
     "name": "Máté Bence",
     "leagueApps": 13,
     "leagueGoals": 0,
@@ -48,6 +54,7 @@
     "totalGoals": 0
   },
   {
+    "id": "moln-r-hunor",
     "name": "Molnár Hunor",
     "leagueApps": 41,
     "leagueGoals": 6,
@@ -56,6 +63,7 @@
     "totalGoals": 6
   },
   {
+    "id": "nagy-levente",
     "name": "Nagy Levente",
     "leagueApps": 26,
     "leagueGoals": 1,
@@ -64,6 +72,7 @@
     "totalGoals": 1
   },
   {
+    "id": "nikula-mil-n-m-rk",
     "name": "Nikula Milán-Márk",
     "leagueApps": 0,
     "leagueGoals": 0,
@@ -72,6 +81,7 @@
     "totalGoals": 0
   },
   {
+    "id": "p-l-szabolcs",
     "name": "Pál Szabolcs",
     "leagueApps": 7,
     "leagueGoals": 0,
@@ -80,6 +90,7 @@
     "totalGoals": 0
   },
   {
+    "id": "p-l-antal-zsolt",
     "name": "Pál Antal Zsolt",
     "leagueApps": 35,
     "leagueGoals": 3,
@@ -88,6 +99,7 @@
     "totalGoals": 3
   },
   {
+    "id": "sim-magor",
     "name": "Simó Magor",
     "leagueApps": 10,
     "leagueGoals": 13,
@@ -96,6 +108,7 @@
     "totalGoals": 13
   },
   {
+    "id": "sz-sz-apor-nimr-d",
     "name": "Szász Apor Nimród",
     "leagueApps": 20,
     "leagueGoals": 13,
@@ -104,6 +117,7 @@
     "totalGoals": 14
   },
   {
+    "id": "sz-n-get-l-szl",
     "name": "Szénégető László",
     "leagueApps": 36,
     "leagueGoals": 12,
@@ -112,6 +126,7 @@
     "totalGoals": 12
   },
   {
+    "id": "v-ncsa-attila",
     "name": "Váncsa Attila",
     "leagueApps": 11,
     "leagueGoals": 0,
@@ -120,6 +135,7 @@
     "totalGoals": 0
   },
   {
+    "id": "v-gh-s-ndor-zsolt",
     "name": "Végh Sándor Zsolt",
     "leagueApps": 41,
     "leagueGoals": 0,
@@ -128,6 +144,7 @@
     "totalGoals": 0
   },
   {
+    "id": "venczel-roland-patrik",
     "name": "Venczel Roland Patrik",
     "leagueApps": 47,
     "leagueGoals": 12,
@@ -136,6 +153,7 @@
     "totalGoals": 12
   },
   {
+    "id": "z-goni-csongor",
     "name": "Zágoni Csongor",
     "leagueApps": 42,
     "leagueGoals": 1,
@@ -144,6 +162,7 @@
     "totalGoals": 1
   },
   {
+    "id": "ancu-roland",
     "name": "Ancu Roland",
     "leagueApps": 6,
     "leagueGoals": 4,
@@ -152,6 +171,7 @@
     "totalGoals": 4
   },
   {
+    "id": "both-hunor-istv-n",
     "name": "Both Hunor István",
     "leagueApps": 2,
     "leagueGoals": 0,
@@ -160,6 +180,7 @@
     "totalGoals": 0
   },
   {
+    "id": "fazakas-zsolt",
     "name": "Fazakas Zsolt",
     "leagueApps": 1,
     "leagueGoals": 0,
@@ -168,6 +189,7 @@
     "totalGoals": 0
   },
   {
+    "id": "p-ll-menyh-rt",
     "name": "Páll Menyhárt",
     "leagueApps": 0,
     "leagueGoals": 0,
@@ -176,6 +198,7 @@
     "totalGoals": 0
   },
   {
+    "id": "siko-kriszti-n",
     "name": "Siko Krisztián",
     "leagueApps": 8,
     "leagueGoals": 0,
@@ -184,6 +207,7 @@
     "totalGoals": 0
   },
   {
+    "id": "tor-s-ndor",
     "name": "Toró Sándor",
     "leagueApps": 2,
     "leagueGoals": 0,
