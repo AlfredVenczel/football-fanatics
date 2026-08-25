@@ -88,26 +88,12 @@ function playerTableRows(season) {
 }
 
 function seasonPlayerRows(season) {
-  const normalized = normalizeSeason(season)
-  const rows = playerMatches.filter(row => playerMatchSeason(row) === normalized)
-  const ids = new Set([...rows.map(row => playerMatchPlayerId(row)), ...playerSeasons.filter(row => normalizeSeason(row.season) === normalized).map(row => row.player_id)].filter(Boolean))
-  const selectedPlayers = players.filter(player => ids.has(player.id))
-  if (!selectedPlayers.length) return `<div class="empty"><strong>Nincs jatekos ehhez a szezonhoz</strong>A Jatekosok oldalon adj jatekos merkozest ehhez a szezonhoz.</div>`
-  const byPlayer = new Map(selectedPlayers.map(player => [player.id, { player, played:0, goals:0, yellow:0, yellowRed:0, red:0 }]))
-  rows.forEach(row => {
-    const id = playerMatchPlayerId(row)
-    const item = byPlayer.get(id)
-    if (!item) return
-    item.played += num(row.played ?? 1)
-    item.goals += num(row.goals)
-    item.yellow += num(row.yellow_cards ?? row.yellowCards ?? row.stat1)
-    item.yellowRed += num(row.yellow_red_cards ?? row.yellowRedCards ?? row.stat2)
-    item.red += num(row.red_cards ?? row.redCards ?? row.stat3)
-  })
-  const total = [...byPlayer.values()].reduce((sum, item) => ({ played:sum.played+item.played, goals:sum.goals+item.goals, yellow:sum.yellow+item.yellow, yellowRed:sum.yellowRed+item.yellowRed, red:sum.red+item.red }), {played:0, goals:0, yellow:0, yellowRed:0, red:0})
-  const totalRow = `<tr class="total-row"><td><strong>Osszesen</strong></td><td><strong>${total.played}</strong></td><td><strong>${total.goals}</strong></td><td><strong>${total.yellow}</strong></td><td><strong>${total.yellowRed}</strong></td><td><strong>${total.red}</strong></td></tr>`
-  const playerRows = [...byPlayer.values()].sort((a,b) => b.goals-a.goals || b.played-a.played || a.player.name.localeCompare(b.player.name)).map(item => `<tr class="clickable" data-record-player="${esc(item.player.id)}"><td><strong>${esc(item.player.name)}</strong></td><td>${item.played}</td><td>${item.goals}</td><td>${item.yellow}</td><td>${item.yellowRed}</td><td>${item.red}</td></tr>`).join('')
-  return `<div class="table-wrap"><table class="player-season-totals"><thead><tr><th>Jatekos</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th></tr></thead><tbody>${totalRow}${playerRows}</tbody></table></div>`
+  const rows = playerMatches.filter(row => playerMatchSeason(row) === normalizeSeason(season))
+  if (!rows.length) return `<div class="empty"><strong>Nincs jatekos merkozesadat ehhez a szezonhoz</strong>A Jatekosok oldalon adj meccset a jatekos profiljahoz.</div>`
+  const total=rows.reduce((a,row)=>{a.played+=num(row.played??1);a.goals+=num(row.goals);a.yellow+=num(row.yellow_cards??row.yellowCards??row.stat1);a.yellowRed+=num(row.yellow_red_cards??row.yellowRedCards??row.stat2);a.red+=num(row.red_cards??row.redCards??row.stat3);return a},{played:0,goals:0,yellow:0,yellowRed:0,red:0})
+  const names=Object.fromEntries(players.map(player=>[player.id,player.name]))
+  const totalRow=`<tr class="total-row"><td><strong>Osszesen</strong></td><td></td><td></td><td></td><td></td><td></td><td><strong>${total.played}</strong></td><td><strong>${total.goals}</strong></td><td><strong>${total.yellow}</strong></td><td><strong>${total.yellowRed}</strong></td><td><strong>${total.red}</strong></td></tr>`
+  return `<div class="table-wrap"><table><thead><tr><th>Jatekos</th><th>Datum</th><th>Sorozat</th><th>Ellenfel</th><th>Allas</th><th>Eredmeny</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th></tr></thead><tbody>${totalRow}${rows.map(row => `<tr class="clickable" data-record-player="${esc(playerMatchPlayerId(row))}"><td><strong>${esc(names[playerMatchPlayerId(row)]||row.player||'')}</strong></td><td>${esc(row.match_date || row.matchDate || '')}</td><td>${row.competition === 'League' ? 'Bajnoksag' : 'Kupa'}</td><td>${esc(row.opponent)}</td><td>${esc(row.score || '')}</td><td><span class="result ${resultClass(row.result)}">${row.result === 'U' ? '?' : row.result}</span></td><td>${row.played ?? 1}</td><td>${row.goals ?? 0}</td><td>${row.yellow_cards ?? row.yellowCards ?? row.stat1 ?? 0}</td><td>${row.yellow_red_cards ?? row.yellowRedCards ?? row.stat2 ?? 0}</td><td>${row.red_cards ?? row.redCards ?? row.stat3 ?? 0}</td></tr>`).join('')}</tbody></table></div>`
 }
 
 function dashboard() {
@@ -118,13 +104,23 @@ function dashboard() {
 
 function playersPage() {
   const names=seasonNames();
-  return `<section class="panel"><div class="section-head"><div><h2>Jatekosok</h2><p class="muted">Az első sor a kiválasztott szezon összesített adatait mutatja. Kattints egy játékosra a részletekhez.</p></div><div class="profile-actions"><select id="players-season">${names.map(name=>`<option value="${esc(name)}">${esc(seasonLabel(name))}</option>`).join('')}<option value="all" selected>Minden szezon</option></select><span class="role" id="players-count">${players.length} jatekos</span>${canEdit()?'<button class="primary" id="add-player">Uj jatekos</button>':''}</div></div><div class="table-wrap"><table><thead><tr><th>Jatekos</th><th>Mez szam</th><th>Bajnoki megjelenes</th><th>Kupa megjelenes</th><th>Bajnoki gol/ok</th><th>Kupa gol/ok</th><th>Osszes gol</th><th></th></tr></thead><tbody id="players-table-body">${playerTableRows('all')}</tbody></table></div></section>`
+  return `<section class="panel"><div class="section-head"><div><h2>Jatekosok</h2><p class="muted">Valassz szezont, majd rendezd a jatekosokat statisztika szerint. Nincs osszesito sor.</p></div><div class="profile-actions"><select id="players-season"><option value="all" selected>Minden szezon</option>${names.map(name=>`<option value="${esc(name)}">${esc(seasonLabel(name))}</option>`).join('')}</select><select id="players-sort"><option value="apps">Legtobbet jatszott</option><option value="goals">Legtobb gol</option><option value="yellow">Legtobb sarga</option><option value="yellowRed">Legtobb sarga + piros</option><option value="red">Legtobb piros</option><option value="name">Nev szerint</option></select><span class="role" id="players-count">${players.length} jatekos</span>${canEdit()?'<button class="primary" id="add-player">Uj jatekos</button>':''}</div></div><div class="table-wrap"><table><thead><tr><th>Jatekos</th><th>Mez szam</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th><th></th></tr></thead><tbody id="players-table-body"></tbody></table></div></section>`
 }
-function bindPlayersTable(season) {
-  const body=document.querySelector('#players-table-body');
-  if(body) body.innerHTML=playerTableRows(season)
-  document.querySelectorAll('.clickable').forEach(row=>row.addEventListener('click',event=>{if(!event.target.closest('button'))playerProfile(row.dataset.player)}))
-  if(canEdit()) document.querySelectorAll('[data-edit-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();editPlayer(players.find(player=>player.id===button.dataset.editPlayer))}))
+function playerStatRows(season='all',sort='apps') {
+  const filtered=playerMatches.filter(row=>season==='all'||normalizeSeason(row.season)===normalizeSeason(season))
+  const ids=new Set([...filtered.map(row=>playerMatchPlayerId(row)),...playerSeasons.filter(row=>season==='all'||normalizeSeason(row.season)===normalizeSeason(season)).map(row=>row.player_id)].filter(Boolean))
+  const source=season==='all'?players:players.filter(player=>ids.has(player.id))
+  const rows=source.map(player=>{const summary=playerStatsForSeason(player,season);const detail=filtered.filter(row=>playerMatchPlayerId(row)===player.id);return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:detail.reduce((a,r)=>a+num(r.yellow_cards??r.yellowCards??r.stat1),0),yellowRed:detail.reduce((a,r)=>a+num(r.yellow_red_cards??r.yellowRedCards??r.stat2),0),red:detail.reduce((a,r)=>a+num(r.red_cards??r.redCards??r.stat3),0)}})
+  rows.sort((a,b)=>sort==='name'?a.player.name.localeCompare(b.player.name):sort==='goals'?b.goals-a.goals||b.played-a.played:sort==='yellow'?b.yellow-a.yellow||b.played-a.played:sort==='yellowRed'?b.yellowRed-a.yellowRed||b.played-a.played:sort==='red'?b.red-a.red||b.played-a.played:b.played-a.played||b.goals-a.goals)
+  return rows
+}
+function bindPlayersTable(season='all',sort='apps') {
+  const rows=playerStatRows(season,sort),body=document.querySelector('#players-table-body')
+  if(!body)return
+  body.innerHTML=rows.map(x=>`<tr class="clickable" data-player="${esc(x.player.id)}"><td><strong>${esc(x.player.name)}</strong></td><td>${x.player.jersey_number??x.player.jerseyNumber??''}</td><td>${x.played}</td><td>${x.goals}</td><td>${x.yellow}</td><td>${x.yellowRed}</td><td>${x.red}</td><td>${canEdit()?`<button class="edit-player" data-edit-player="${esc(x.player.id)}">Szerkeszt</button>`:''}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Nincs jatekos ehhez a szezonhoz.</td></tr>'
+  const count=document.querySelector('#players-count');if(count)count.textContent=`${rows.length} jatekos`
+  body.querySelectorAll('.clickable').forEach(row=>row.addEventListener('click',event=>{if(!event.target.closest('button'))playerProfile(row.dataset.player)}))
+  if(canEdit())body.querySelectorAll('[data-edit-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();editPlayer(players.find(player=>player.id===button.dataset.editPlayer))}))
 }
 
 function matchesPage() {
@@ -168,8 +164,9 @@ function showPage(page) {
     if (canEdit()) document.querySelector('#add-season').addEventListener('click', addGlobalSeason)
   } else if (page === 'players') {
     content.innerHTML = playersPage()
-    bindPlayersTable('all')
-    document.querySelector('#players-season').addEventListener('change', event => bindPlayersTable(event.target.value))
+    bindPlayersTable('all','apps')
+    document.querySelector('#players-season').addEventListener('change',event=>bindPlayersTable(event.target.value,document.querySelector('#players-sort').value))
+    document.querySelector('#players-sort').addEventListener('change',event=>bindPlayersTable(document.querySelector('#players-season').value,event.target.value))
     if (canEdit()) document.querySelector('#add-player').addEventListener('click', addPlayer)
   } else {
     content.innerHTML = matchesPage()
