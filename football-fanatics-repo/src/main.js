@@ -99,8 +99,8 @@ function seasonPlayerRows(season) {
   const details=playerMatches.filter(row=>playerMatchSeason(row)===normalized)
   const ids=new Set([...details.map(row=>playerMatchPlayerId(row)),...playerSeasons.filter(row=>normalizeSeason(row.season)===normalized).map(row=>row.player_id)].filter(Boolean))
   const selected=players.filter(player=>ids.has(player.id)).map(player=>{
-    const summary=playerStatsForSeason(player,season)
     const own=details.filter(row=>playerMatchPlayerId(row)===player.id)
+    const summary=playerStatsForSeason(player,season)
     return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:own.reduce((a,row)=>a+num(row.yellow_cards??row.yellowCards??row.stat1??0),0),yellowRed:own.reduce((a,row)=>a+num(row.yellow_red_cards??row.yellowRedCards??row.stat2??0),0),red:own.reduce((a,row)=>a+num(row.red_cards??row.redCards??row.stat3??0),0)}
   }).sort((a,b)=>b.played-a.played||b.goals-a.goals||a.player.name.localeCompare(b.player.name))
   if(!selected.length)return `<div class="empty"><strong>Nincs jatekos ehhez a szezonhoz</strong>A Jatekosok oldalon adj jatekos merkozest ehhez a szezonhoz.</div>`
@@ -127,7 +127,7 @@ function playerStatRows(season='all',sort='apps') {
     const detail=filtered.filter(row=>playerMatchPlayerId(row)===player.id)
     return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:detail.reduce((a,row)=>a+num(row.yellow_cards??row.yellowCards??row.stat1??0),0),yellowRed:detail.reduce((a,row)=>a+num(row.yellow_red_cards??row.yellowRedCards??row.stat2??0),0),red:detail.reduce((a,row)=>a+num(row.red_cards??row.redCards??row.stat3??0),0)}
   })
-  rows.sort((a,b)=>sort==='name'?a.player.name.localeCompare(b.player.name):sort==='goals'?b.goals-a.goals||b.played-a.played:sort==='yellow'?b.yellow-a.yellow||b.played-a.played:sort==='yellowRed'?b.yellowRed-a.yellowRed||b.played-a.played:sort==='red'?b.red-a.red||b.played-a.played:b.played-a.played||b.goals-a.goals)
+  rows.sort((a,b)=>sort==='name'?a.player.name.localeCompare(b.player.name):sort==='goals'?b.goals-a.goals||b.played-a.played:sort==='yellow'?b.yellow-a.yellow||b.played-a.played:sort==='yellowRed'?b.yellowRed-a.yellowRed||b.played-a.played:sort==='red'?b.red-a.red||b.played-b.played:b.played-a.played||b.goals-a.goals)
   return rows
 }
 
@@ -140,14 +140,8 @@ function bindPlayersTable(season='all',sort='apps') {
   if(canEdit())body.querySelectorAll('[data-edit-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();editPlayer(players.find(player=>player.id===button.dataset.editPlayer))}))
 }
 
-function matchDetail(match) {
-  const competition=match.competition==='Cup'?'Kupa':'Bajnoksag'
-  return `<dialog class="match-dialog" id="match-dialog"><form method="dialog" class="match-dialog-card"><div class="section-head"><div><span class="eyebrow">Merkozes adatlap</span><h2>${esc(match.opponent)}</h2><p class="muted">${esc(match.match_date||'')} · ${competition}</p></div><button class="close-dialog" value="cancel" aria-label="Bezár">×</button></div><div class="match-score"><strong>${esc(match.score||'vs')}</strong><span>Football Fanatics vs ${esc(match.opponent)}</span></div><div class="match-notes"><b>Golszerzok es megjegyzesek</b><p>${esc(match.notes||'Nincs tovabbi merkozesadat.')}</p></div><div class="dialog-actions">${canEdit()?`<button type="button" class="edit" data-detail-edit="${esc(match.id)}">Szerkeszt</button>`:''}<button class="secondary" value="cancel">Bezár</button></div></form></dialog>`
-}
-function bindMatchDetails(){document.querySelectorAll('[data-match-detail]').forEach(button=>button.addEventListener('click',()=>{const match=matches.find(row=>String(row.id)===button.dataset.matchDetail);if(!match)return;document.querySelector('#match-dialog')?.remove();document.body.insertAdjacentHTML('beforeend',matchDetail(match));const dialog=document.querySelector('#match-dialog');dialog.showModal();dialog.querySelector('[data-detail-edit]')?.addEventListener('click',()=>{dialog.close();dialog.remove();editMatch(match)});dialog.addEventListener('close',()=>dialog.remove(),{once:true})}))}
-
 function matchesPage() {
-  return `<section class="toolbar"><p class="muted">${matches.length} shared matches</p>${canEdit()?'<button id="add-match" class="primary">Merkozes hozzaadasa</button>':''}</section><div class="table-wrap"><table><thead><tr><th>Datum</th><th>Ellenfel</th><th>Sorozat</th><th>Allas</th><th>Eredmeny</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>${matches.map(match=>`<tr><td>${esc(match.match_date||'')}</td><td><button class="team-link" data-match-detail="${esc(match.id)}">${esc(match.opponent)}</button></td><td>${match.competition==='League'?'Bajnoksag':'Kupa'}</td><td>${esc(match.score||'vs')}</td><td><span class="result ${resultClass(match.result)}">${esc(match.result||'Upcoming')}</span></td>${canEdit()?`<td><button class="edit" data-match-edit="${esc(match.id)}">Szerkeszt</button></td>`:''}</tr>`).join('')}</tbody></table></div>`
+  return `<section class="toolbar"><p class="muted">${matches.length} shared matches</p>${canEdit() ? '<button id="add-match" class="primary">Merkozes hozzaadasa</button>' : ''}</section><div class="table-wrap"><table><thead><tr><th>Datum</th><th>Ellenfel</th><th>Sorozat</th><th>Allas</th><th>Eredmeny</th>${canEdit() ? '<th></th>' : ''}</tr></thead><tbody>${matches.map(match => `<tr><td>${esc(match.match_date || '')}</td><td>${esc(match.opponent)}</td><td>${match.competition === 'League' ? 'Bajnoksag' : 'Kupa'}</td><td>${esc(match.score || 'vs')}</td><td><span class="result ${resultClass(match.result)}">${esc(match.result || 'Upcoming')}</span></td>${canEdit() ? `<td><button class="edit" data-match-edit="${match.id}">Szerkeszt</button></td>` : ''}</tr>`).join('')}</tbody></table></div>`
 }
 
 function playerProfile(id) {
@@ -193,7 +187,6 @@ function showPage(page) {
     if (canEdit()) document.querySelector('#add-player').addEventListener('click', addPlayer)
   } else {
     content.innerHTML = matchesPage()
-    bindMatchDetails()
     if (canEdit()) {
       document.querySelector('#add-match').addEventListener('click', () => editMatch())
       document.querySelectorAll('[data-match-edit]').forEach(button => button.addEventListener('click', () => editMatch(matches.find(match => String(match.id) === button.dataset.matchEdit))))
