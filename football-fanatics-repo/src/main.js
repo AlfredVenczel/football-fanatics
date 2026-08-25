@@ -134,14 +134,20 @@ function playerStatRows(season='all',sort='apps') {
 function bindPlayersTable(season='all',sort='apps') {
   const rows=playerStatRows(season,sort),body=document.querySelector('#players-table-body')
   if(!body)return
-  body.innerHTML=rows.map(x=>`<tr class="clickable" data-player="${esc(x.player.id)}"><td><strong>${esc(x.player.name)}</strong></td><td>${x.player.jersey_number??x.player.jerseyNumber??''}</td><td>${x.played}</td><td>${x.goals}</td><td>${x.yellow}</td><td>${x.yellowRed}</td><td>${x.red}</td><td>${canEdit()?`<button class="edit-player" data-edit-player="${esc(x.player.id)}">Szerkeszt</button>`:''}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Nincs jatekos ehhez a szezonhoz.</td></tr>'
+  body.innerHTML=rows.map(x=>`<tr class="clickable" data-player="${esc(x.player.id)}"><td><strong>${esc(x.player.name)}</strong></td><td>${x.player.jersey_number??x.player.jerseyNumber??''}</td><td>${x.played}</td><td>${x.goals}</td><td>${x.yellow}</td><td>${x.yellowRed}</td><td>${x.red}</td><td>${canEdit()?`<button class="edit-player" data-edit-player="${esc(x.player.id)}">Szerkeszt</button><button class="delete-player" data-delete-player="${esc(x.player.id)}">Torol</button>`:''}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Nincs jatekos ehhez a szezonhoz.</td></tr>'
   const count=document.querySelector('#players-count');if(count)count.textContent=`${rows.length} jatekos`
   body.querySelectorAll('.clickable').forEach(row=>row.addEventListener('click',event=>{if(!event.target.closest('button'))playerProfile(row.dataset.player)}))
-  if(canEdit())body.querySelectorAll('[data-edit-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();editPlayer(players.find(player=>player.id===button.dataset.editPlayer))}))
+  if(canEdit()){body.querySelectorAll('[data-edit-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();editPlayer(players.find(player=>player.id===button.dataset.editPlayer))}));body.querySelectorAll('[data-delete-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();deletePlayer(button.dataset.deletePlayer)}))}
 }
 
+function matchPopup(match){return `<dialog class="match-dialog" id="match-dialog"><form method="dialog" class="match-dialog-card"><div class="section-head"><div><span class="eyebrow">Merkozes adatlap</span><h2>${esc(match.opponent)}</h2><p class="muted">${esc(match.match_date||'')} · ${match.competition==='Cup'?'Kupa':'Bajnoksag'}</p></div><button class="close-dialog" value="cancel" aria-label="Bezár">×</button></div><div class="match-score"><strong>${esc(match.score||'vs')}</strong><span>Football Fanatics vs ${esc(match.opponent)}</span></div><div class="match-notes"><b>Golszerzok es megjegyzesek</b><p>${esc(match.notes||'Nincs tovabbi merkozesadat.')}</p></div><div class="dialog-actions">${canEdit()?`<button type="button" class="edit" data-popup-edit="${esc(match.id)}">Szerkeszt</button>`:''}<button class="secondary" value="cancel">Bezár</button></div></form></dialog>`}
+function bindMatchPopups(){document.querySelectorAll('[data-match-detail]').forEach(button=>button.addEventListener('click',()=>{const match=matches.find(row=>String(row.id)===button.dataset.matchDetail);if(!match)return;document.querySelector('#match-dialog')?.remove();document.body.insertAdjacentHTML('beforeend',matchPopup(match));const d=document.querySelector('#match-dialog');d.showModal();d.querySelector('[data-popup-edit]')?.addEventListener('click',()=>{d.close();d.remove();editMatch(match)});d.addEventListener('close',()=>d.remove(),{once:true})}))}
+
+function bindPlayerDeleteButtons(){document.querySelectorAll('[data-delete-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();deletePlayer(button.dataset.deletePlayer)}))}
+async function deletePlayer(id){const player=players.find(row=>row.id===id);if(!player)return;if(!confirm(`Biztosan torlod ${player.name} jatekost es a hozza tartozo merkozesadatait?`))return;const{error}=await supabase.from('players').delete().eq('id',id);if(error){alert(error.message);return}await load();showPage('players')}
+
 function matchesPage() {
-  return `<section class="toolbar"><p class="muted">${matches.length} shared matches</p>${canEdit() ? '<button id="add-match" class="primary">Merkozes hozzaadasa</button>' : ''}</section><div class="table-wrap"><table><thead><tr><th>Datum</th><th>Ellenfel</th><th>Sorozat</th><th>Allas</th><th>Eredmeny</th>${canEdit() ? '<th></th>' : ''}</tr></thead><tbody>${matches.map(match => `<tr><td>${esc(match.match_date || '')}</td><td>${esc(match.opponent)}</td><td>${match.competition === 'League' ? 'Bajnoksag' : 'Kupa'}</td><td>${esc(match.score || 'vs')}</td><td><span class="result ${resultClass(match.result)}">${esc(match.result || 'Upcoming')}</span></td>${canEdit() ? `<td><button class="edit" data-match-edit="${match.id}">Szerkeszt</button></td>` : ''}</tr>`).join('')}</tbody></table></div>`
+  return `<section class="toolbar"><p class="muted">${matches.length} shared matches</p>${canEdit()?'<button id="add-match" class="primary">Merkozes hozzaadasa</button>':''}</section><div class="table-wrap"><table><thead><tr><th>Datum</th><th>Ellenfel</th><th>Sorozat</th><th>Allas</th><th>Eredmeny</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>${matches.map(match=>`<tr><td>${esc(match.match_date||'')}</td><td><button class="team-link" data-match-detail="${esc(match.id)}">${esc(match.opponent)}</button></td><td>${match.competition==='League'?'Bajnoksag':'Kupa'}</td><td>${esc(match.score||'vs')}</td><td><span class="result ${resultClass(match.result)}">${esc(match.result||'Upcoming')}</span></td>${canEdit()?`<td><button class="edit" data-match-edit="${esc(match.id)}">Szerkeszt</button></td>`:''}</tr>`).join('')}</tbody></table></div>`
 }
 
 function playerProfile(id) {
@@ -184,9 +190,13 @@ function showPage(page) {
     bindPlayersTable('all','apps')
     document.querySelector('#players-season').addEventListener('change',event=>bindPlayersTable(event.target.value,document.querySelector('#players-sort').value))
     document.querySelector('#players-sort').addEventListener('change',event=>bindPlayersTable(document.querySelector('#players-season').value,event.target.value))
-    if (canEdit()) document.querySelector('#add-player').addEventListener('click', addPlayer)
+    if (canEdit()) {
+      document.querySelector('#add-player').addEventListener('click', addPlayer)
+      bindPlayerDeleteButtons()
+    }
   } else {
     content.innerHTML = matchesPage()
+    bindMatchPopups()
     if (canEdit()) {
       document.querySelector('#add-match').addEventListener('click', () => editMatch())
       document.querySelectorAll('[data-match-edit]').forEach(button => button.addEventListener('click', () => editMatch(matches.find(match => String(match.id) === button.dataset.matchEdit))))
