@@ -1,36 +1,34 @@
-# Football Fanatics
+# Football Fanatics latest update
 
-Vite + Supabase scaffold for the authenticated Football Fanatics match tracker.
+This is the latest clean app bundle. It includes:
 
-## Supabase setup
+- Supabase login with Editor and Viewer access
+- 48 match records from the shared database
+- Full team table on the Dashboard
+- Hungarian labels: Tablazat, Merkozesek, Jatekosok, Szezon, Datum, Sorozat, Ellenfel, Allas, Eredmeny, Jatszott, Gol
+- Hungarian team table abbreviations: J, Gy, D, V, RG, KG, GA, Pont
+- Clickable player rows and player detail pages
+- Add season and Add match inside a player profile
+- Editable player summaries and player match records
+- W green, D yellow, L red
+- Card icons only in the player-history table header
 
-1. Create a Supabase project.
-2. Open SQL Editor and run `supabase/schema.sql`.
-3. Create the first user in Authentication > Users, or sign up in the app.
-4. Promote Alfred after his account exists:
+## GitHub upload
 
-```sql
-update public.profiles
-set role = 'editor'
-where email = 'alfredvenczel@yahoo.com';
-```
+Inside your existing repository, upload and replace:
 
-Everyone else defaults to `viewer`. The client only uses the publishable key. Never put a service-role key in the browser.
+- `src/main.js`
+- `src/styles.css`
+- `src/players.json`
+- `src/player_matches.json`
+- `src/standings.json`
 
-## Local run
+Keep `src/lib/supabase.js`, `index.html`, `package.json`, and `vercel.json`.
 
-```bash
-cp .env.example .env.local
-npm install
-npm run dev
-```
+## Supabase
 
-Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` in `.env.local`.
+If you already ran the previous player migration, do not run it again. If not, run the earlier `players_migration.sql` and `seed_players.sql` first. Run `supabase/player_seasons_migration.sql` once for the Add season button.
 
-## Vercel
+## Deploy
 
-Import the repository into Vercel, add the two `VITE_` environment variables for Production, Preview, and Development, then deploy. `vercel.json` already points Vercel at Vite's `dist` output.
-
-## Important
-
-The current scaffold includes the auth, role gate, protected match table, and editable UI wiring. The original 48-match workbook data still needs to be inserted into `public.matches`, either with a CSV import or an insert script.
+Commit the files to the `main` branch. Vercel should redeploy automatically. If not, open the latest deployment and choose Redeploy.
