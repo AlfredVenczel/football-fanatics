@@ -71,7 +71,13 @@ function rowCards(row, key, legacy) { return num(row[key] ?? row[legacy] ?? row[
 function detailRowsForSeason(season) { return playerMatches.filter(row => season === 'all' || normalizeSeason(row.season) === normalizeSeason(season)) }
 function playerIsInSeason(id, season) { return season === 'all' || playerMatches.some(row => playerMatchPlayerId(row) === id && normalizeSeason(row.season) === normalizeSeason(season)) || playerSeasons.some(row => row.player_id === id && normalizeSeason(row.season) === normalizeSeason(season)) }
 function playerStatsForSeason(player, season) {
-  if (season === 'all') return { leagueApps:num(player.league_apps ?? player.leagueApps), cupApps:num(player.cup_apps ?? player.cupApps), leagueGoals:num(player.league_goals ?? player.leagueGoals), cupGoals:num(player.cup_goals ?? player.cupGoals), totalGoals:num(player.total_goals ?? player.totalGoals) }
+  if (season === 'all') {
+    const leagueApps=num(player.league_apps ?? player.leagueApps)
+    const cupApps=num(player.cup_apps ?? player.cupApps)
+    const leagueGoals=num(player.league_goals ?? player.leagueGoals)
+    const cupGoals=num(player.cup_goals ?? player.cupGoals)
+    return { leagueApps, cupApps, leagueGoals, cupGoals, totalGoals:leagueGoals+cupGoals }
+  }
   const rows = playerMatches.filter(row => playerMatchPlayerId(row) === player.id && normalizeSeason(row.season) === normalizeSeason(season))
   return rows.reduce((a, row) => { const c=rowCompetition(row); const played=num(row.played ?? 1); const goals=num(row.goals); if(c==='Cup'){a.cupApps+=played;a.cupGoals+=goals}else{a.leagueApps+=played;a.leagueGoals+=goals} a.totalGoals+=goals; return a }, {leagueApps:0,cupApps:0,leagueGoals:0,cupGoals:0,totalGoals:0})
 }
@@ -110,10 +116,15 @@ function playerStatRows(season='all',sort='apps') {
   const filtered=playerMatches.filter(row=>season==='all'||normalizeSeason(row.season)===normalizeSeason(season))
   const ids=new Set([...filtered.map(row=>playerMatchPlayerId(row)),...playerSeasons.filter(row=>season==='all'||normalizeSeason(row.season)===normalizeSeason(season)).map(row=>row.player_id)].filter(Boolean))
   const source=season==='all'?players:players.filter(player=>ids.has(player.id))
-  const rows=source.map(player=>{const summary=playerStatsForSeason(player,season);const detail=filtered.filter(row=>playerMatchPlayerId(row)===player.id);return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:detail.reduce((a,r)=>a+num(r.yellow_cards??r.yellowCards??r.stat1),0),yellowRed:detail.reduce((a,r)=>a+num(r.yellow_red_cards??r.yellowRedCards??r.stat2),0),red:detail.reduce((a,r)=>a+num(r.red_cards??r.redCards??r.stat3),0)}})
+  const rows=source.map(player=>{
+    const summary=playerStatsForSeason(player,season)
+    const detail=filtered.filter(row=>playerMatchPlayerId(row)===player.id)
+    return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:detail.reduce((a,r)=>a+num(r.yellow_cards??r.yellowCards??r.stat1??0),0),yellowRed:detail.reduce((a,r)=>a+num(r.yellow_red_cards??r.yellowRedCards??r.stat2??0),0),red:detail.reduce((a,r)=>a+num(r.red_cards??r.redCards??r.stat3??0),0)}
+  })
   rows.sort((a,b)=>sort==='name'?a.player.name.localeCompare(b.player.name):sort==='goals'?b.goals-a.goals||b.played-a.played:sort==='yellow'?b.yellow-a.yellow||b.played-a.played:sort==='yellowRed'?b.yellowRed-a.yellowRed||b.played-a.played:sort==='red'?b.red-a.red||b.played-a.played:b.played-a.played||b.goals-a.goals)
   return rows
 }
+
 function bindPlayersTable(season='all',sort='apps') {
   const rows=playerStatRows(season,sort),body=document.querySelector('#players-table-body')
   if(!body)return
