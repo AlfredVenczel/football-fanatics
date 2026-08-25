@@ -10,9 +10,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-1",
@@ -25,9 +25,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-2",
@@ -40,9 +40,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-3",
@@ -55,9 +55,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-4",
@@ -70,9 +70,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-5",
@@ -85,9 +85,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-6",
@@ -100,9 +100,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-7",
@@ -115,9 +115,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-8",
@@ -130,9 +130,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-9",
@@ -145,9 +145,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-10",
@@ -160,9 +160,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2025/2026-League-11",
@@ -175,9 +175,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-12",
@@ -190,9 +190,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-13",
@@ -205,9 +205,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-14",
@@ -220,9 +220,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-15",
@@ -235,9 +235,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-16",
@@ -250,9 +250,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-17",
@@ -265,9 +265,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-18",
@@ -280,9 +280,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-19",
@@ -295,9 +295,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-20",
@@ -310,9 +310,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-21",
@@ -325,9 +325,9 @@
     "result": "D",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fej-r-szabolcs-2024/2025-League-22",
@@ -340,9 +340,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2025/2026-League-23",
@@ -355,9 +355,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2025/2026-League-24",
@@ -370,9 +370,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2025/2026-League-25",
@@ -385,9 +385,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2025/2026-League-26",
@@ -400,9 +400,9 @@
     "result": "D",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2025/2026-League-27",
@@ -415,9 +415,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2025/2026-League-28",
@@ -430,9 +430,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2025/2026-League-29",
@@ -445,9 +445,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2024/2025-League-30",
@@ -460,9 +460,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2024/2025-League-31",
@@ -475,9 +475,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2024/2025-League-32",
@@ -490,9 +490,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2024/2025-League-33",
@@ -505,9 +505,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2024/2025-League-34",
@@ -520,9 +520,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2024/2025-League-35",
@@ -535,9 +535,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "hidi-barna-2024/2025-League-36",
@@ -550,9 +550,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-37",
@@ -565,9 +565,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-38",
@@ -580,24 +580,24 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-39",
     "playerId": "kov-cs-alp-r-etele",
     "season": "2025/2026",
     "competition": "League",
-    "matchDate": "2026-05-20",
+    "matchDate": "",
     "opponent": "Doma",
     "score": "0-7",
-    "result": "L",
+    "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-40",
@@ -610,9 +610,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-41",
@@ -625,9 +625,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-42",
@@ -640,9 +640,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-43",
@@ -655,9 +655,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-44",
@@ -670,9 +670,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-45",
@@ -685,9 +685,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-46",
@@ -700,9 +700,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-47",
@@ -715,9 +715,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-48",
@@ -730,9 +730,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-49",
@@ -745,9 +745,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-50",
@@ -760,9 +760,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-51",
@@ -775,9 +775,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-52",
@@ -790,9 +790,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-53",
@@ -805,9 +805,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2025/2026-League-54",
@@ -820,9 +820,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-55",
@@ -835,9 +835,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-56",
@@ -850,9 +850,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-57",
@@ -865,9 +865,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-58",
@@ -880,9 +880,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-59",
@@ -895,9 +895,9 @@
     "result": "W",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-60",
@@ -910,9 +910,9 @@
     "result": "D",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-61",
@@ -925,9 +925,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-62",
@@ -940,9 +940,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-63",
@@ -955,9 +955,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-64",
@@ -970,9 +970,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-65",
@@ -985,9 +985,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-66",
@@ -1000,9 +1000,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-67",
@@ -1015,9 +1015,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-68",
@@ -1030,9 +1030,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-69",
@@ -1045,9 +1045,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-70",
@@ -1060,9 +1060,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-71",
@@ -1075,9 +1075,9 @@
     "result": "D",
     "played": 1,
     "goals": 2,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-72",
@@ -1090,9 +1090,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-League-73",
@@ -1105,9 +1105,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-74",
@@ -1120,9 +1120,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-75",
@@ -1135,9 +1135,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-76",
@@ -1150,9 +1150,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-77",
@@ -1165,9 +1165,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-78",
@@ -1180,9 +1180,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-79",
@@ -1195,9 +1195,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-80",
@@ -1210,9 +1210,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-81",
@@ -1225,9 +1225,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-82",
@@ -1240,9 +1240,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-83",
@@ -1255,9 +1255,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-84",
@@ -1270,9 +1270,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-85",
@@ -1285,9 +1285,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-86",
@@ -1300,9 +1300,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2025/2026-League-87",
@@ -1315,9 +1315,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-League-88",
@@ -1330,9 +1330,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-League-89",
@@ -1345,9 +1345,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-League-90",
@@ -1360,9 +1360,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-League-91",
@@ -1375,9 +1375,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-League-92",
@@ -1390,9 +1390,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-League-93",
@@ -1405,9 +1405,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-League-94",
@@ -1420,9 +1420,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-League-95",
@@ -1435,9 +1435,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-League-96",
@@ -1450,9 +1450,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-97",
@@ -1465,9 +1465,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-98",
@@ -1480,9 +1480,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-99",
@@ -1495,9 +1495,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-100",
@@ -1510,9 +1510,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-101",
@@ -1525,9 +1525,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-102",
@@ -1540,9 +1540,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-103",
@@ -1555,9 +1555,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-104",
@@ -1570,9 +1570,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-105",
@@ -1585,9 +1585,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2025/2026-League-106",
@@ -1600,9 +1600,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2024/2025-League-107",
@@ -1615,9 +1615,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2024/2025-League-108",
@@ -1630,9 +1630,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "m-t-bence-2024/2025-League-109",
@@ -1645,9 +1645,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-110",
@@ -1660,9 +1660,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-111",
@@ -1675,9 +1675,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-112",
@@ -1690,9 +1690,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-113",
@@ -1705,9 +1705,9 @@
     "result": "L",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-114",
@@ -1720,9 +1720,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-115",
@@ -1735,9 +1735,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-116",
@@ -1750,9 +1750,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-117",
@@ -1765,9 +1765,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-118",
@@ -1780,9 +1780,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-119",
@@ -1795,9 +1795,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-120",
@@ -1810,9 +1810,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-121",
@@ -1825,9 +1825,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-122",
@@ -1840,9 +1840,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-123",
@@ -1855,9 +1855,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-124",
@@ -1870,9 +1870,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-125",
@@ -1885,9 +1885,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-126",
@@ -1900,9 +1900,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-127",
@@ -1915,9 +1915,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-128",
@@ -1930,9 +1930,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-League-129",
@@ -1945,9 +1945,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-130",
@@ -1960,9 +1960,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-131",
@@ -1975,9 +1975,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-132",
@@ -1990,9 +1990,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-133",
@@ -2005,9 +2005,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-134",
@@ -2020,9 +2020,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-135",
@@ -2035,9 +2035,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-136",
@@ -2050,9 +2050,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-137",
@@ -2065,9 +2065,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 1
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 1
   },
   {
     "id": "moln-r-hunor-2024/2025-League-138",
@@ -2080,9 +2080,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-139",
@@ -2095,9 +2095,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-140",
@@ -2110,9 +2110,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-141",
@@ -2125,9 +2125,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-142",
@@ -2140,9 +2140,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-143",
@@ -2155,9 +2155,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-144",
@@ -2170,9 +2170,9 @@
     "result": "L",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-145",
@@ -2185,9 +2185,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-146",
@@ -2200,9 +2200,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-147",
@@ -2215,9 +2215,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-League-148",
@@ -2230,9 +2230,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-149",
@@ -2245,9 +2245,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-150",
@@ -2260,24 +2260,24 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-151",
     "playerId": "nagy-levente",
     "season": "2025/2026",
     "competition": "League",
-    "matchDate": "2026-05-20",
+    "matchDate": "",
     "opponent": "Doma",
     "score": "0-7",
-    "result": "L",
+    "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-152",
@@ -2290,9 +2290,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-153",
@@ -2305,9 +2305,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-154",
@@ -2320,9 +2320,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-155",
@@ -2335,9 +2335,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-156",
@@ -2350,9 +2350,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-157",
@@ -2365,9 +2365,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-158",
@@ -2380,9 +2380,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-159",
@@ -2395,9 +2395,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-160",
@@ -2410,9 +2410,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-161",
@@ -2425,9 +2425,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-162",
@@ -2440,9 +2440,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-163",
@@ -2455,9 +2455,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-League-164",
@@ -2470,9 +2470,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2024/2025-League-165",
@@ -2485,9 +2485,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2024/2025-League-166",
@@ -2500,9 +2500,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2024/2025-League-167",
@@ -2515,9 +2515,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2024/2025-League-168",
@@ -2530,9 +2530,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2024/2025-League-169",
@@ -2545,9 +2545,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2024/2025-League-170",
@@ -2560,9 +2560,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2024/2025-League-171",
@@ -2575,9 +2575,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2024/2025-League-172",
@@ -2590,9 +2590,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2024/2025-League-173",
@@ -2605,9 +2605,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-szabolcs-2024/2025-League-174",
@@ -2620,9 +2620,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 1
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 1
   },
   {
     "id": "p-l-szabolcs-2024/2025-League-175",
@@ -2635,9 +2635,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-szabolcs-2024/2025-League-176",
@@ -2650,9 +2650,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-szabolcs-2024/2025-League-177",
@@ -2665,9 +2665,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-szabolcs-2024/2025-League-178",
@@ -2680,9 +2680,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-szabolcs-2024/2025-League-179",
@@ -2695,9 +2695,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-szabolcs-2024/2025-League-180",
@@ -2710,9 +2710,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-181",
@@ -2725,9 +2725,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-182",
@@ -2740,9 +2740,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-183",
@@ -2755,9 +2755,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-184",
@@ -2770,9 +2770,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-185",
@@ -2785,9 +2785,9 @@
     "result": "D",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-186",
@@ -2800,9 +2800,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-187",
@@ -2815,9 +2815,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-188",
@@ -2830,9 +2830,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-189",
@@ -2845,9 +2845,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-190",
@@ -2860,9 +2860,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-191",
@@ -2875,9 +2875,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-192",
@@ -2890,9 +2890,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-193",
@@ -2905,9 +2905,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-194",
@@ -2920,9 +2920,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-195",
@@ -2935,9 +2935,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-196",
@@ -2950,9 +2950,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-197",
@@ -2965,9 +2965,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-198",
@@ -2980,9 +2980,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-199",
@@ -2995,9 +2995,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2025/2026-League-200",
@@ -3010,9 +3010,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-201",
@@ -3025,9 +3025,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-202",
@@ -3040,9 +3040,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-203",
@@ -3055,9 +3055,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-204",
@@ -3070,9 +3070,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-205",
@@ -3085,9 +3085,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-206",
@@ -3100,9 +3100,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-207",
@@ -3115,9 +3115,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 1,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 1,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-208",
@@ -3130,9 +3130,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-209",
@@ -3145,9 +3145,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-210",
@@ -3160,9 +3160,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-211",
@@ -3175,9 +3175,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-212",
@@ -3190,9 +3190,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-213",
@@ -3205,9 +3205,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-League-214",
@@ -3220,9 +3220,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-215",
@@ -3235,9 +3235,9 @@
     "result": "W",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-216",
@@ -3250,9 +3250,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-217",
@@ -3265,9 +3265,9 @@
     "result": "W",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-218",
@@ -3280,9 +3280,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-219",
@@ -3295,9 +3295,9 @@
     "result": "L",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-220",
@@ -3310,9 +3310,9 @@
     "result": "L",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-221",
@@ -3325,9 +3325,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-222",
@@ -3340,9 +3340,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-223",
@@ -3355,9 +3355,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sim-magor-2024/2025-League-224",
@@ -3370,9 +3370,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-225",
@@ -3385,9 +3385,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-226",
@@ -3400,9 +3400,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-227",
@@ -3415,9 +3415,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-228",
@@ -3430,9 +3430,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-229",
@@ -3445,9 +3445,9 @@
     "result": "L",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-230",
@@ -3460,9 +3460,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-231",
@@ -3475,9 +3475,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-232",
@@ -3490,9 +3490,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-233",
@@ -3505,9 +3505,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-234",
@@ -3520,9 +3520,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-235",
@@ -3535,9 +3535,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-236",
@@ -3550,9 +3550,9 @@
     "result": "U",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-237",
@@ -3565,9 +3565,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-238",
@@ -3580,9 +3580,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-239",
@@ -3595,9 +3595,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-240",
@@ -3610,9 +3610,9 @@
     "result": "D",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-241",
@@ -3625,9 +3625,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-242",
@@ -3640,9 +3640,9 @@
     "result": "L",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-League-243",
@@ -3655,9 +3655,9 @@
     "result": "D",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-244",
@@ -3670,9 +3670,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-245",
@@ -3685,9 +3685,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-246",
@@ -3700,9 +3700,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-247",
@@ -3715,9 +3715,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-248",
@@ -3730,9 +3730,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-249",
@@ -3745,9 +3745,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-250",
@@ -3760,9 +3760,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-251",
@@ -3775,9 +3775,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-252",
@@ -3790,9 +3790,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-253",
@@ -3805,9 +3805,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-254",
@@ -3820,9 +3820,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-255",
@@ -3835,9 +3835,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-256",
@@ -3850,9 +3850,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-257",
@@ -3865,9 +3865,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2025/2026-League-258",
@@ -3880,9 +3880,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-259",
@@ -3895,9 +3895,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-260",
@@ -3910,9 +3910,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-261",
@@ -3925,9 +3925,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-262",
@@ -3940,9 +3940,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-263",
@@ -3955,9 +3955,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-264",
@@ -3970,9 +3970,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-265",
@@ -3985,9 +3985,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-266",
@@ -4000,9 +4000,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-267",
@@ -4015,9 +4015,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-268",
@@ -4030,9 +4030,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-269",
@@ -4045,9 +4045,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-270",
@@ -4060,9 +4060,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-271",
@@ -4075,9 +4075,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-272",
@@ -4090,9 +4090,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-273",
@@ -4105,9 +4105,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-274",
@@ -4120,9 +4120,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-275",
@@ -4135,9 +4135,9 @@
     "result": "W",
     "played": 1,
     "goals": 3,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-276",
@@ -4150,9 +4150,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-277",
@@ -4165,9 +4165,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-League-278",
@@ -4180,9 +4180,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2025/2026-League-279",
@@ -4195,24 +4195,24 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2025/2026-League-280",
     "playerId": "v-ncsa-attila",
     "season": "2025/2026",
     "competition": "League",
-    "matchDate": "2026-05-20",
+    "matchDate": "",
     "opponent": "Doma",
     "score": "0-7",
-    "result": "L",
+    "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2025/2026-League-281",
@@ -4225,9 +4225,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2025/2026-League-282",
@@ -4240,9 +4240,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2025/2026-League-283",
@@ -4255,9 +4255,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2025/2026-League-284",
@@ -4270,9 +4270,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2025/2026-League-285",
@@ -4285,9 +4285,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2024/2025-League-286",
@@ -4300,9 +4300,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2024/2025-League-287",
@@ -4315,9 +4315,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-288",
@@ -4330,9 +4330,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-289",
@@ -4345,24 +4345,24 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-290",
     "playerId": "v-gh-s-ndor-zsolt",
     "season": "2025/2026",
     "competition": "League",
-    "matchDate": "2026-05-20",
+    "matchDate": "",
     "opponent": "Doma",
     "score": "0-7",
-    "result": "L",
+    "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-291",
@@ -4375,9 +4375,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-292",
@@ -4390,9 +4390,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-293",
@@ -4405,9 +4405,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-294",
@@ -4420,9 +4420,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-295",
@@ -4435,9 +4435,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-296",
@@ -4450,9 +4450,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-297",
@@ -4465,9 +4465,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-298",
@@ -4480,9 +4480,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-299",
@@ -4495,9 +4495,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-300",
@@ -4510,9 +4510,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-301",
@@ -4525,9 +4525,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-302",
@@ -4540,9 +4540,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-303",
@@ -4555,9 +4555,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-304",
@@ -4570,9 +4570,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-305",
@@ -4585,9 +4585,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-306",
@@ -4600,9 +4600,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-307",
@@ -4615,9 +4615,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-308",
@@ -4630,9 +4630,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-League-309",
@@ -4645,9 +4645,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-310",
@@ -4660,9 +4660,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-311",
@@ -4675,9 +4675,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-312",
@@ -4690,9 +4690,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-313",
@@ -4705,9 +4705,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-314",
@@ -4720,9 +4720,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-315",
@@ -4735,9 +4735,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-316",
@@ -4750,9 +4750,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-317",
@@ -4765,9 +4765,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-318",
@@ -4780,9 +4780,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-319",
@@ -4795,9 +4795,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-320",
@@ -4810,9 +4810,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-321",
@@ -4825,9 +4825,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-322",
@@ -4840,9 +4840,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-323",
@@ -4855,9 +4855,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-324",
@@ -4870,9 +4870,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-325",
@@ -4885,9 +4885,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-League-326",
@@ -4900,9 +4900,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-327",
@@ -4915,9 +4915,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-328",
@@ -4930,24 +4930,24 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-329",
     "playerId": "venczel-roland-patrik",
     "season": "2025/2026",
     "competition": "League",
-    "matchDate": "2026-05-20",
+    "matchDate": "",
     "opponent": "Doma",
     "score": "0-7",
-    "result": "L",
+    "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-330",
@@ -4960,9 +4960,9 @@
     "result": "L",
     "played": 1,
     "goals": 2,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-331",
@@ -4975,9 +4975,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-332",
@@ -4990,9 +4990,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-333",
@@ -5005,9 +5005,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-334",
@@ -5020,9 +5020,9 @@
     "result": "D",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-335",
@@ -5035,9 +5035,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-336",
@@ -5050,9 +5050,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-337",
@@ -5065,9 +5065,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-338",
@@ -5080,9 +5080,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-339",
@@ -5095,9 +5095,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-340",
@@ -5110,9 +5110,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-341",
@@ -5125,9 +5125,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-342",
@@ -5140,9 +5140,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-343",
@@ -5155,9 +5155,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-344",
@@ -5170,9 +5170,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-345",
@@ -5185,9 +5185,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-346",
@@ -5200,9 +5200,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-347",
@@ -5215,9 +5215,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-348",
@@ -5230,9 +5230,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-349",
@@ -5245,9 +5245,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-350",
@@ -5260,9 +5260,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-351",
@@ -5275,9 +5275,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-League-352",
@@ -5290,9 +5290,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-353",
@@ -5305,9 +5305,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-354",
@@ -5320,9 +5320,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-355",
@@ -5335,9 +5335,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-356",
@@ -5350,9 +5350,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-357",
@@ -5365,9 +5365,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-358",
@@ -5380,9 +5380,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-359",
@@ -5395,9 +5395,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-360",
@@ -5410,9 +5410,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-361",
@@ -5425,9 +5425,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-362",
@@ -5440,9 +5440,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-363",
@@ -5455,9 +5455,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-364",
@@ -5470,9 +5470,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-365",
@@ -5485,9 +5485,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-366",
@@ -5500,9 +5500,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-367",
@@ -5515,9 +5515,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-368",
@@ -5530,9 +5530,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-369",
@@ -5545,9 +5545,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-370",
@@ -5560,9 +5560,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-League-371",
@@ -5575,9 +5575,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-372",
@@ -5590,9 +5590,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-373",
@@ -5605,24 +5605,24 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-374",
     "playerId": "z-goni-csongor",
     "season": "2025/2026",
     "competition": "League",
-    "matchDate": "2026-05-20",
+    "matchDate": "",
     "opponent": "Doma",
     "score": "0-7",
-    "result": "L",
+    "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-375",
@@ -5635,9 +5635,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-376",
@@ -5650,9 +5650,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-377",
@@ -5665,9 +5665,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-378",
@@ -5680,9 +5680,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-379",
@@ -5695,9 +5695,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-380",
@@ -5710,9 +5710,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-381",
@@ -5725,9 +5725,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-382",
@@ -5740,9 +5740,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-383",
@@ -5755,9 +5755,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-384",
@@ -5770,9 +5770,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-385",
@@ -5785,9 +5785,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-386",
@@ -5800,9 +5800,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-387",
@@ -5815,9 +5815,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-388",
@@ -5830,9 +5830,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 1
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 1
   },
   {
     "id": "z-goni-csongor-2025/2026-League-389",
@@ -5845,9 +5845,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-390",
@@ -5860,9 +5860,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-League-391",
@@ -5875,9 +5875,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-392",
@@ -5890,9 +5890,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-393",
@@ -5905,9 +5905,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-394",
@@ -5920,9 +5920,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-395",
@@ -5935,9 +5935,9 @@
     "result": "W",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-396",
@@ -5950,9 +5950,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-397",
@@ -5965,9 +5965,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-398",
@@ -5980,9 +5980,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-399",
@@ -5995,9 +5995,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-400",
@@ -6010,9 +6010,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-401",
@@ -6025,9 +6025,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-402",
@@ -6040,9 +6040,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-403",
@@ -6055,9 +6055,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-404",
@@ -6070,9 +6070,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-405",
@@ -6085,9 +6085,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-406",
@@ -6100,9 +6100,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-407",
@@ -6115,9 +6115,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-408",
@@ -6130,9 +6130,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-409",
@@ -6145,9 +6145,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-410",
@@ -6160,9 +6160,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-League-411",
@@ -6175,9 +6175,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "ancu-roland-2025/2026-League-412",
@@ -6190,9 +6190,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "ancu-roland-2025/2026-League-413",
@@ -6205,9 +6205,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "ancu-roland-2025/2026-League-414",
@@ -6220,9 +6220,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "ancu-roland-2025/2026-League-415",
@@ -6235,9 +6235,9 @@
     "result": "D",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "ancu-roland-2025/2026-League-416",
@@ -6250,9 +6250,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "ancu-roland-2025/2026-League-417",
@@ -6265,9 +6265,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "both-hunor-istv-n-2024/2025-League-418",
@@ -6280,9 +6280,9 @@
     "result": "D",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "both-hunor-istv-n-2024/2025-League-419",
@@ -6295,9 +6295,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "fazakas-zsolt-2024/2025-League-420",
@@ -6310,9 +6310,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "siko-kriszti-n-2025/2026-League-421",
@@ -6325,9 +6325,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "siko-kriszti-n-2025/2026-League-422",
@@ -6340,9 +6340,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "siko-kriszti-n-2025/2026-League-423",
@@ -6355,9 +6355,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "siko-kriszti-n-2025/2026-League-424",
@@ -6370,9 +6370,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "siko-kriszti-n-2025/2026-League-425",
@@ -6385,9 +6385,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "siko-kriszti-n-2025/2026-League-426",
@@ -6400,9 +6400,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "siko-kriszti-n-2025/2026-League-427",
@@ -6415,9 +6415,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "siko-kriszti-n-2025/2026-League-428",
@@ -6430,9 +6430,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "tor-s-ndor-2024/2025-League-429",
@@ -6445,9 +6445,9 @@
     "result": "W",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "tor-s-ndor-2024/2025-League-430",
@@ -6460,9 +6460,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-alp-r-etele-2024/2025-Cup-431",
@@ -6475,9 +6475,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "kov-cs-istv-n-tibor-2024/2025-Cup-432",
@@ -6490,9 +6490,9 @@
     "result": "L",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2025/2026-Cup-433",
@@ -6505,9 +6505,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "moln-r-hunor-2024/2025-Cup-434",
@@ -6520,9 +6520,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "nagy-levente-2025/2026-Cup-435",
@@ -6535,9 +6535,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "p-l-antal-zsolt-2024/2025-Cup-436",
@@ -6550,9 +6550,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-sz-apor-nimr-d-2025/2026-Cup-437",
@@ -6565,9 +6565,9 @@
     "result": "U",
     "played": 1,
     "goals": 1,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "sz-n-get-l-szl-2024/2025-Cup-438",
@@ -6580,9 +6580,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2025/2026-Cup-439",
@@ -6595,9 +6595,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-ncsa-attila-2024/2025-Cup-440",
@@ -6610,9 +6610,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2025/2026-Cup-441",
@@ -6625,9 +6625,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "v-gh-s-ndor-zsolt-2024/2025-Cup-442",
@@ -6640,9 +6640,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2025/2026-Cup-443",
@@ -6655,9 +6655,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "venczel-roland-patrik-2024/2025-Cup-444",
@@ -6670,9 +6670,9 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2025/2026-Cup-445",
@@ -6685,9 +6685,9 @@
     "result": "U",
     "played": 1,
     "goals": 0,
-    "stat1": 1,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 1,
+    "yellowRedCards": 0,
+    "redCards": 0
   },
   {
     "id": "z-goni-csongor-2024/2025-Cup-446",
@@ -6700,8 +6700,8 @@
     "result": "L",
     "played": 1,
     "goals": 0,
-    "stat1": 0,
-    "stat2": 0,
-    "stat3": 0
+    "yellowCards": 0,
+    "yellowRedCards": 0,
+    "redCards": 0
   }
 ]

@@ -2,6 +2,7 @@
   {
     "id": "farkas-imre-szabolcs",
     "name": "Farkas Imre Szabolcs",
+    "jerseyNumber": 0,
     "leagueApps": 0,
     "leagueGoals": 0,
     "cupApps": 0,
@@ -11,6 +12,7 @@
   {
     "id": "fej-r-szabolcs",
     "name": "Fejér Szabolcs",
+    "jerseyNumber": 6,
     "leagueApps": 23,
     "leagueGoals": 2,
     "cupApps": 0,
@@ -20,6 +22,7 @@
   {
     "id": "hidi-barna",
     "name": "Hidi Barna",
+    "jerseyNumber": 15,
     "leagueApps": 14,
     "leagueGoals": 6,
     "cupApps": 0,
@@ -29,6 +32,7 @@
   {
     "id": "kov-cs-alp-r-etele",
     "name": "Kovács Alpár Etele",
+    "jerseyNumber": 19,
     "leagueApps": 38,
     "leagueGoals": 8,
     "cupApps": 1,
@@ -38,6 +42,7 @@
   {
     "id": "kov-cs-istv-n-tibor",
     "name": "Kovács István Tibor",
+    "jerseyNumber": 21,
     "leagueApps": 24,
     "leagueGoals": 9,
     "cupApps": 1,
@@ -47,6 +52,7 @@
   {
     "id": "m-t-bence",
     "name": "Máté Bence",
+    "jerseyNumber": 88,
     "leagueApps": 13,
     "leagueGoals": 0,
     "cupApps": 0,
@@ -56,6 +62,7 @@
   {
     "id": "moln-r-hunor",
     "name": "Molnár Hunor",
+    "jerseyNumber": 2,
     "leagueApps": 41,
     "leagueGoals": 6,
     "cupApps": 2,
@@ -65,6 +72,7 @@
   {
     "id": "nagy-levente",
     "name": "Nagy Levente",
+    "jerseyNumber": 4,
     "leagueApps": 26,
     "leagueGoals": 1,
     "cupApps": 1,
@@ -74,6 +82,7 @@
   {
     "id": "nikula-mil-n-m-rk",
     "name": "Nikula Milán-Márk",
+    "jerseyNumber": 9,
     "leagueApps": 0,
     "leagueGoals": 0,
     "cupApps": 0,
@@ -83,6 +92,7 @@
   {
     "id": "p-l-szabolcs",
     "name": "Pál Szabolcs",
+    "jerseyNumber": 24,
     "leagueApps": 7,
     "leagueGoals": 0,
     "cupApps": 0,
@@ -92,6 +102,7 @@
   {
     "id": "p-l-antal-zsolt",
     "name": "Pál Antal Zsolt",
+    "jerseyNumber": 10,
     "leagueApps": 35,
     "leagueGoals": 3,
     "cupApps": 1,
@@ -101,6 +112,7 @@
   {
     "id": "sim-magor",
     "name": "Simó Magor",
+    "jerseyNumber": 7,
     "leagueApps": 10,
     "leagueGoals": 13,
     "cupApps": 0,
@@ -110,6 +122,7 @@
   {
     "id": "sz-sz-apor-nimr-d",
     "name": "Szász Apor Nimród",
+    "jerseyNumber": 8,
     "leagueApps": 20,
     "leagueGoals": 13,
     "cupApps": 1,
@@ -119,6 +132,7 @@
   {
     "id": "sz-n-get-l-szl",
     "name": "Szénégető László",
+    "jerseyNumber": 28,
     "leagueApps": 36,
     "leagueGoals": 12,
     "cupApps": 1,
@@ -128,6 +142,7 @@
   {
     "id": "v-ncsa-attila",
     "name": "Váncsa Attila",
+    "jerseyNumber": 12,
     "leagueApps": 11,
     "leagueGoals": 0,
     "cupApps": 2,
@@ -137,6 +152,7 @@
   {
     "id": "v-gh-s-ndor-zsolt",
     "name": "Végh Sándor Zsolt",
+    "jerseyNumber": 17,
     "leagueApps": 41,
     "leagueGoals": 0,
     "cupApps": 2,
@@ -146,6 +162,7 @@
   {
     "id": "venczel-roland-patrik",
     "name": "Venczel Roland Patrik",
+    "jerseyNumber": 5,
     "leagueApps": 47,
     "leagueGoals": 12,
     "cupApps": 2,
@@ -155,6 +172,7 @@
   {
     "id": "z-goni-csongor",
     "name": "Zágoni Csongor",
+    "jerseyNumber": 1,
     "leagueApps": 42,
     "leagueGoals": 1,
     "cupApps": 2,
@@ -164,6 +182,7 @@
   {
     "id": "ancu-roland",
     "name": "Ancu Roland",
+    "jerseyNumber": 0,
     "leagueApps": 6,
     "leagueGoals": 4,
     "cupApps": 0,
@@ -173,6 +192,7 @@
   {
     "id": "both-hunor-istv-n",
     "name": "Both Hunor István",
+    "jerseyNumber": 0,
     "leagueApps": 2,
     "leagueGoals": 0,
     "cupApps": 0,
@@ -182,6 +202,7 @@
   {
     "id": "fazakas-zsolt",
     "name": "Fazakas Zsolt",
+    "jerseyNumber": 0,
     "leagueApps": 1,
     "leagueGoals": 0,
     "cupApps": 0,
@@ -191,6 +212,7 @@
   {
     "id": "p-ll-menyh-rt",
     "name": "Páll Menyhárt",
+    "jerseyNumber": 0,
     "leagueApps": 0,
     "leagueGoals": 0,
     "cupApps": 0,
@@ -200,6 +222,7 @@
   {
     "id": "siko-kriszti-n",
     "name": "Siko Krisztián",
+    "jerseyNumber": 0,
     "leagueApps": 8,
     "leagueGoals": 0,
     "cupApps": 0,
@@ -209,6 +232,7 @@
   {
     "id": "tor-s-ndor",
     "name": "Toró Sándor",
+    "jerseyNumber": 0,
     "leagueApps": 2,
     "leagueGoals": 0,
     "cupApps": 0,
