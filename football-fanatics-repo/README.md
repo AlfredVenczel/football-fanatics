@@ -1,22 +1,14 @@
-# Football Fanatics latest update
+# Football Fanatics controls update
 
-This is the latest clean app bundle. It includes:
+Adds:
+- Dashboard title `Tablazat` and an `Uj szezon` button.
+- Players title `Jatekosok`, an `Uj jatekos` button, and `Mez szam` after `Jatekos`.
+- Jersey numbers loaded from the Excel player sheet.
+- Existing clickable player profiles and per-season match records.
+- Existing editor-only controls and W/D/L colors.
+- Card icons only in the player-history header.
 
-- Supabase login with Editor and Viewer access
-- 48 match records from the shared database
-- Full team table on the Dashboard
-- Hungarian labels: Tablazat, Merkozesek, Jatekosok, Szezon, Datum, Sorozat, Ellenfel, Allas, Eredmeny, Jatszott, Gol
-- Hungarian team table abbreviations: J, Gy, D, V, RG, KG, GA, Pont
-- Clickable player rows and player detail pages
-- Add season and Add match inside a player profile
-- Editable player summaries and player match records
-- W green, D yellow, L red
-- Card icons only in the player-history table header
-
-## GitHub upload
-
-Inside your existing repository, upload and replace:
-
+Replace inside the existing `football-fanatics-repo`:
 - `src/main.js`
 - `src/styles.css`
 - `src/players.json`
@@ -25,10 +17,6 @@ Inside your existing repository, upload and replace:
 
 Keep `src/lib/supabase.js`, `index.html`, `package.json`, and `vercel.json`.
 
-## Supabase
+In Supabase SQL Editor, run `supabase/player_and_season_controls.sql` once. It adds jersey numbers, named card columns, and the seasons table needed by `Uj szezon`.
 
-If you already ran the previous player migration, do not run it again. If not, run the earlier `players_migration.sql` and `seed_players.sql` first. Run `supabase/player_seasons_migration.sql` once for the Add season button.
-
-## Deploy
-
-Commit the files to the `main` branch. Vercel should redeploy automatically. If not, open the latest deployment and choose Redeploy.
+Commit to `main`; Vercel should redeploy automatically.
