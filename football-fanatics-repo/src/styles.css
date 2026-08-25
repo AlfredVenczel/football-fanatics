@@ -6,3 +6,4 @@
 
 body{position:relative}body::before{content:"";position:fixed;right:26px;bottom:24px;width:clamp(180px,24vw,360px);height:clamp(180px,24vw,360px);background-image:url("/football-fanatics-logo.webp");background-size:contain;background-repeat:no-repeat;background-position:center;opacity:.16;pointer-events:none;z-index:0}body>*{position:relative;z-index:1}.sidebar,.auth-shell{position:relative;z-index:2}
 .brand-logo{width:42px;height:42px;object-fit:contain;border-radius:50%;background:#151515;flex:none}.brand .brand-logo{display:block}
+.header-brand{display:flex;align-items:center;gap:14px}.header-logo{width:58px;height:58px;object-fit:contain;border-radius:50%;background:#151515;flex:none}
