@@ -104,10 +104,8 @@ function seasonPlayerRows(season) {
     return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:own.reduce((a,row)=>a+num(row.yellow_cards??row.yellowCards??row.stat1??0),0),yellowRed:own.reduce((a,row)=>a+num(row.yellow_red_cards??row.yellowRedCards??row.stat2??0),0),red:own.reduce((a,row)=>a+num(row.red_cards??row.redCards??row.stat3??0),0)}
   }).sort((a,b)=>b.played-a.played||b.goals-a.goals||a.player.name.localeCompare(b.player.name))
   if(!selected.length)return `<div class="empty"><strong>Nincs jatekos ehhez a szezonhoz</strong>A Jatekosok oldalon adj jatekos merkozest ehhez a szezonhoz.</div>`
-  const total=selected.reduce((a,row)=>({played:a.played+row.played,goals:a.goals+row.goals,yellow:a.yellow+row.yellow,yellowRed:a.yellowRed+row.yellowRed,red:a.red+row.red}),{played:0,goals:0,yellow:0,yellowRed:0,red:0})
-  const totalRow=`<tr class="total-row"><td><strong>Osszesen</strong></td><td><strong>${total.played}</strong></td><td><strong>${total.goals}</strong></td><td><strong>${total.yellow}</strong></td><td><strong>${total.yellowRed}</strong></td><td><strong>${total.red}</strong></td></tr>`
   const playerRows=selected.map(row=>`<tr class="clickable" data-record-player="${esc(row.player.id)}"><td><strong>${esc(row.player.name)}</strong></td><td>${row.played}</td><td>${row.goals}</td><td>${row.yellow}</td><td>${row.yellowRed}</td><td>${row.red}</td></tr>`).join('')
-  return `<div class="table-wrap"><table class="player-season-totals"><thead><tr><th>Jatekos</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th></tr></thead><tbody>${totalRow}${playerRows}</tbody></table></div>`
+  return `<div class="table-wrap"><table class="player-season-totals"><thead><tr><th>Jatekos</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th></tr></thead><tbody>${playerRows}</tbody></table></div>`
 }
 
 function dashboard() {
@@ -142,8 +140,14 @@ function bindPlayersTable(season='all',sort='apps') {
   if(canEdit())body.querySelectorAll('[data-edit-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();editPlayer(players.find(player=>player.id===button.dataset.editPlayer))}))
 }
 
+function matchDetail(match) {
+  const competition=match.competition==='Cup'?'Kupa':'Bajnoksag'
+  return `<section class="match-detail panel"><div class="section-head"><div><span class="eyebrow">Merkozes adatlap</span><h2>${esc(match.opponent)}</h2><p class="muted">${esc(match.match_date||'')} · ${competition}</p></div><div class="match-detail-actions"><span class="result ${resultClass(match.result)}">${esc(match.result||'Upcoming')}</span>${canEdit()?`<button class="edit" data-detail-edit="${esc(match.id)}">Szerkeszt</button>`:''}<button class="secondary" id="close-match-detail">Bezár</button></div></div><div class="match-score"><strong>${esc(match.score||'vs')}</strong><span>Football Fanatics vs ${esc(match.opponent)}</span></div><div class="match-notes"><b>Golszerzok es megjegyzesek</b><p>${esc(match.notes||'Nincs tovabbi merkozesadat.')}</p></div></section>`
+}
+function bindMatchDetails(){document.querySelectorAll('[data-match-detail]').forEach(button=>button.addEventListener('click',()=>{const match=matches.find(row=>String(row.id)===button.dataset.matchDetail);if(!match)return;const slot=document.querySelector('#match-detail');slot.innerHTML=matchDetail(match);slot.hidden=false;slot.scrollIntoView({behavior:'smooth',block:'start'});document.querySelector('#close-match-detail').addEventListener('click',()=>{slot.hidden=true;slot.innerHTML='' });if(canEdit())document.querySelector('[data-detail-edit]').addEventListener('click',()=>editMatch(match))}))}
+
 function matchesPage() {
-  return `<section class="toolbar"><p class="muted">${matches.length} shared matches</p>${canEdit() ? '<button id="add-match" class="primary">Merkozes hozzaadasa</button>' : ''}</section><div class="table-wrap"><table><thead><tr><th>Datum</th><th>Ellenfel</th><th>Sorozat</th><th>Allas</th><th>Eredmeny</th>${canEdit() ? '<th></th>' : ''}</tr></thead><tbody>${matches.map(match => `<tr><td>${esc(match.match_date || '')}</td><td>${esc(match.opponent)}</td><td>${match.competition === 'League' ? 'Bajnoksag' : 'Kupa'}</td><td>${esc(match.score || 'vs')}</td><td><span class="result ${resultClass(match.result)}">${esc(match.result || 'Upcoming')}</span></td>${canEdit() ? `<td><button class="edit" data-match-edit="${match.id}">Szerkeszt</button></td>` : ''}</tr>`).join('')}</tbody></table></div>`
+  return `<section class="toolbar"><p class="muted">${matches.length} shared matches</p>${canEdit()?'<button id="add-match" class="primary">Merkozes hozzaadasa</button>':''}</section><section id="match-detail" hidden></section><div class="table-wrap"><table><thead><tr><th>Datum</th><th>Ellenfel</th><th>Sorozat</th><th>Allas</th><th>Eredmeny</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>${matches.map(match=>`<tr><td>${esc(match.match_date||'')}</td><td><button class="team-link" data-match-detail="${esc(match.id)}">${esc(match.opponent)}</button></td><td>${match.competition==='League'?'Bajnoksag':'Kupa'}</td><td>${esc(match.score||'vs')}</td><td><span class="result ${resultClass(match.result)}">${esc(match.result||'Upcoming')}</span></td>${canEdit()?`<td><button class="edit" data-match-edit="${esc(match.id)}">Szerkeszt</button></td>`:''}</tr>`).join('')}</tbody></table></div>`
 }
 
 function playerProfile(id) {
@@ -189,6 +193,7 @@ function showPage(page) {
     if (canEdit()) document.querySelector('#add-player').addEventListener('click', addPlayer)
   } else {
     content.innerHTML = matchesPage()
+    bindMatchDetails()
     if (canEdit()) {
       document.querySelector('#add-match').addEventListener('click', () => editMatch())
       document.querySelectorAll('[data-match-edit]').forEach(button => button.addEventListener('click', () => editMatch(matches.find(match => String(match.id) === button.dataset.matchEdit))))
