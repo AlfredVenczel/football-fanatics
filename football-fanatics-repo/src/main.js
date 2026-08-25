@@ -76,11 +76,12 @@ function playerStatsForSeason(player, season) {
     const cupApps=num(player.cup_apps ?? player.cupApps)
     const leagueGoals=num(player.league_goals ?? player.leagueGoals)
     const cupGoals=num(player.cup_goals ?? player.cupGoals)
-    return { leagueApps, cupApps, leagueGoals, cupGoals, totalGoals:leagueGoals+cupGoals }
+    return {leagueApps,cupApps,leagueGoals,cupGoals,totalGoals:leagueGoals+cupGoals}
   }
-  const rows = playerMatches.filter(row => playerMatchPlayerId(row) === player.id && normalizeSeason(row.season) === normalizeSeason(season))
-  return rows.reduce((a, row) => { const c=rowCompetition(row); const played=num(row.played ?? 1); const goals=num(row.goals); if(c==='Cup'){a.cupApps+=played;a.cupGoals+=goals}else{a.leagueApps+=played;a.leagueGoals+=goals} a.totalGoals+=goals; return a }, {leagueApps:0,cupApps:0,leagueGoals:0,cupGoals:0,totalGoals:0})
+  const rows=playerMatches.filter(row=>playerMatchPlayerId(row)===player.id&&normalizeSeason(row.season)===normalizeSeason(season))
+  return rows.reduce((a,row)=>{const c=rowCompetition(row),played=num(row.played??1),goals=num(row.goals);if(c==='Cup'){a.cupApps+=played;a.cupGoals+=goals}else{a.leagueApps+=played;a.leagueGoals+=goals}a.totalGoals+=goals;return a},{leagueApps:0,cupApps:0,leagueGoals:0,cupGoals:0,totalGoals:0})
 }
+
 function totalPlayerStats(season) {
   if (season === 'all') return players.reduce((a,p) => { const x=playerStatsForSeason(p,'all'); a.leagueApps+=x.leagueApps;a.cupApps+=x.cupApps;a.leagueGoals+=x.leagueGoals;a.cupGoals+=x.cupGoals;a.totalGoals+=x.totalGoals; return a }, {leagueApps:0,cupApps:0,leagueGoals:0,cupGoals:0,totalGoals:0})
   return players.filter(p => playerIsInSeason(p.id, season)).reduce((a,p) => { const x=playerStatsForSeason(p,season); a.leagueApps+=x.leagueApps;a.cupApps+=x.cupApps;a.leagueGoals+=x.leagueGoals;a.cupGoals+=x.cupGoals;a.totalGoals+=x.totalGoals; return a }, {leagueApps:0,cupApps:0,leagueGoals:0,cupGoals:0,totalGoals:0})
@@ -94,12 +95,19 @@ function playerTableRows(season) {
 }
 
 function seasonPlayerRows(season) {
-  const rows = playerMatches.filter(row => playerMatchSeason(row) === normalizeSeason(season))
-  if (!rows.length) return `<div class="empty"><strong>Nincs jatekos merkozesadat ehhez a szezonhoz</strong>A Jatekosok oldalon adj meccset a jatekos profiljahoz.</div>`
-  const total=rows.reduce((a,row)=>{a.played+=num(row.played??1);a.goals+=num(row.goals);a.yellow+=num(row.yellow_cards??row.yellowCards??row.stat1);a.yellowRed+=num(row.yellow_red_cards??row.yellowRedCards??row.stat2);a.red+=num(row.red_cards??row.redCards??row.stat3);return a},{played:0,goals:0,yellow:0,yellowRed:0,red:0})
-  const names=Object.fromEntries(players.map(player=>[player.id,player.name]))
-  const totalRow=`<tr class="total-row"><td><strong>Osszesen</strong></td><td></td><td></td><td></td><td></td><td></td><td><strong>${total.played}</strong></td><td><strong>${total.goals}</strong></td><td><strong>${total.yellow}</strong></td><td><strong>${total.yellowRed}</strong></td><td><strong>${total.red}</strong></td></tr>`
-  return `<div class="table-wrap"><table><thead><tr><th>Jatekos</th><th>Datum</th><th>Sorozat</th><th>Ellenfel</th><th>Allas</th><th>Eredmeny</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th></tr></thead><tbody>${totalRow}${rows.map(row => `<tr class="clickable" data-record-player="${esc(playerMatchPlayerId(row))}"><td><strong>${esc(names[playerMatchPlayerId(row)]||row.player||'')}</strong></td><td>${esc(row.match_date || row.matchDate || '')}</td><td>${row.competition === 'League' ? 'Bajnoksag' : 'Kupa'}</td><td>${esc(row.opponent)}</td><td>${esc(row.score || '')}</td><td><span class="result ${resultClass(row.result)}">${row.result === 'U' ? '?' : row.result}</span></td><td>${row.played ?? 1}</td><td>${row.goals ?? 0}</td><td>${row.yellow_cards ?? row.yellowCards ?? row.stat1 ?? 0}</td><td>${row.yellow_red_cards ?? row.yellowRedCards ?? row.stat2 ?? 0}</td><td>${row.red_cards ?? row.redCards ?? row.stat3 ?? 0}</td></tr>`).join('')}</tbody></table></div>`
+  const normalized=normalizeSeason(season)
+  const details=playerMatches.filter(row=>playerMatchSeason(row)===normalized)
+  const ids=new Set([...details.map(row=>playerMatchPlayerId(row)),...playerSeasons.filter(row=>normalizeSeason(row.season)===normalized).map(row=>row.player_id)].filter(Boolean))
+  const selected=players.filter(player=>ids.has(player.id)).map(player=>{
+    const summary=playerStatsForSeason(player,season)
+    const own=details.filter(row=>playerMatchPlayerId(row)===player.id)
+    return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:own.reduce((a,row)=>a+num(row.yellow_cards??row.yellowCards??row.stat1??0),0),yellowRed:own.reduce((a,row)=>a+num(row.yellow_red_cards??row.yellowRedCards??row.stat2??0),0),red:own.reduce((a,row)=>a+num(row.red_cards??row.redCards??row.stat3??0),0)}
+  }).sort((a,b)=>b.played-a.played||b.goals-a.goals||a.player.name.localeCompare(b.player.name))
+  if(!selected.length)return `<div class="empty"><strong>Nincs jatekos ehhez a szezonhoz</strong>A Jatekosok oldalon adj jatekos merkozest ehhez a szezonhoz.</div>`
+  const total=selected.reduce((a,row)=>({played:a.played+row.played,goals:a.goals+row.goals,yellow:a.yellow+row.yellow,yellowRed:a.yellowRed+row.yellowRed,red:a.red+row.red}),{played:0,goals:0,yellow:0,yellowRed:0,red:0})
+  const totalRow=`<tr class="total-row"><td><strong>Osszesen</strong></td><td><strong>${total.played}</strong></td><td><strong>${total.goals}</strong></td><td><strong>${total.yellow}</strong></td><td><strong>${total.yellowRed}</strong></td><td><strong>${total.red}</strong></td></tr>`
+  const playerRows=selected.map(row=>`<tr class="clickable" data-record-player="${esc(row.player.id)}"><td><strong>${esc(row.player.name)}</strong></td><td>${row.played}</td><td>${row.goals}</td><td>${row.yellow}</td><td>${row.yellowRed}</td><td>${row.red}</td></tr>`).join('')
+  return `<div class="table-wrap"><table class="player-season-totals"><thead><tr><th>Jatekos</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th></tr></thead><tbody>${totalRow}${playerRows}</tbody></table></div>`
 }
 
 function dashboard() {
@@ -119,7 +127,7 @@ function playerStatRows(season='all',sort='apps') {
   const rows=source.map(player=>{
     const summary=playerStatsForSeason(player,season)
     const detail=filtered.filter(row=>playerMatchPlayerId(row)===player.id)
-    return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:detail.reduce((a,r)=>a+num(r.yellow_cards??r.yellowCards??r.stat1??0),0),yellowRed:detail.reduce((a,r)=>a+num(r.yellow_red_cards??r.yellowRedCards??r.stat2??0),0),red:detail.reduce((a,r)=>a+num(r.red_cards??r.redCards??r.stat3??0),0)}
+    return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:detail.reduce((a,row)=>a+num(row.yellow_cards??row.yellowCards??row.stat1??0),0),yellowRed:detail.reduce((a,row)=>a+num(row.yellow_red_cards??row.yellowRedCards??row.stat2??0),0),red:detail.reduce((a,row)=>a+num(row.red_cards??row.redCards??row.stat3??0),0)}
   })
   rows.sort((a,b)=>sort==='name'?a.player.name.localeCompare(b.player.name):sort==='goals'?b.goals-a.goals||b.played-a.played:sort==='yellow'?b.yellow-a.yellow||b.played-a.played:sort==='yellowRed'?b.yellowRed-a.yellowRed||b.played-a.played:sort==='red'?b.red-a.red||b.played-a.played:b.played-a.played||b.goals-a.goals)
   return rows
