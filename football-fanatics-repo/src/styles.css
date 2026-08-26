@@ -7,5 +7,8 @@
 body{position:relative}body::before{content:"";position:fixed;right:26px;bottom:24px;width:clamp(180px,24vw,360px);height:clamp(180px,24vw,360px);background-image:url("/football-fanatics-logo.webp");background-size:contain;background-repeat:no-repeat;background-position:center;opacity:.16;pointer-events:none;z-index:0}body>*{position:relative;z-index:1}.sidebar,.auth-shell{position:relative;z-index:2}
 .brand-logo{width:42px;height:42px;object-fit:contain;border-radius:50%;background:#151515;flex:none}.brand .brand-logo{display:block}
 
-/* Guaranteed visible team mark */
-body::after{content:"";position:fixed;top:18px;left:18px;width:72px;height:72px;background-color:#151515;background-image:url("/football-fanatics-logo.webp");background-size:contain;background-repeat:no-repeat;background-position:center;border-radius:50%;box-shadow:0 4px 16px #0003;pointer-events:none;z-index:2147483000}
+/* Logo layout fix: one small crest below the menus, no header image, no watermark */
+body::before,body::after{display:none!important}
+.main header img,.main .header-logo,.main .hero-logo{display:none!important}
+.sidebar-logo-slot{display:flex;justify-content:center;align-items:center;padding:14px 0 4px;border-top:1px solid #2a2a2a}
+.sidebar-logo{width:68px;height:68px;object-fit:contain;border-radius:50%;background:#151515;display:block}
