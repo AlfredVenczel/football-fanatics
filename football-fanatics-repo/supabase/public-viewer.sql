@@ -23,3 +23,4 @@ create policy "public can read seasons" on public.seasons for select to anon usi
 
 drop policy if exists "public can read player seasons" on public.player_seasons;
 create policy "public can read player seasons" on public.player_seasons for select to anon using (true);
+
