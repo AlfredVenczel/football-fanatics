@@ -91,7 +91,7 @@ function playerTableRows(season) {
   const rows = players.filter(p => playerIsInSeason(p.id, season)).map(player => ({player, stats:playerStatsForSeason(player, season)})).sort((a,b) => b.stats.totalGoals-a.stats.totalGoals || a.player.name.localeCompare(b.player.name))
   const total=totalPlayerStats(season)
   const totalRow=`<tr class="total-row"><td><strong>Osszesen</strong></td><td></td><td><strong>${total.leagueApps}</strong></td><td><strong>${total.cupApps}</strong></td><td><strong>${total.leagueGoals}</strong></td><td><strong>${total.cupGoals}</strong></td><td><strong>${total.totalGoals}</strong></td><td></td></tr>`
-  const dataRows=rows.map(({player,stats})=>`<tr class="clickable" data-player="${esc(player.id)}"><td><strong>${esc(player.name)}</strong></td><td>${player.jersey_number ?? player.jerseyNumber ?? ''}</td><td>${stats.leagueApps}</td><td>${stats.cupApps}</td><td>${stats.leagueGoals}</td><td>${stats.cupGoals}</td><td><strong>${stats.totalGoals}</strong></td><td>${canEdit()?`<button class="edit-player" data-edit-player="${esc(player.id)}">Szerkeszt</button>`:''}</td></tr>`).join('')
+  const dataRows=rows.map(({player,stats})=>`<tr class="clickable" data-player="${esc(player.id)}"><td><strong class="player-link">${esc(player.name)}</strong></td><td>${player.jersey_number ?? player.jerseyNumber ?? ''}</td><td>${stats.leagueApps}</td><td>${stats.cupApps}</td><td>${stats.leagueGoals}</td><td>${stats.cupGoals}</td><td><strong>${stats.totalGoals}</strong></td><td>${canEdit()?`<button class="edit-player" data-edit-player="${esc(player.id)}">Szerkeszt</button>`:''}</td></tr>`).join('')
   return totalRow+dataRows
 }
 
@@ -105,7 +105,7 @@ function seasonPlayerRows(season) {
     return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:own.reduce((a,row)=>a+num(row.yellow_cards??row.yellowCards??row.stat1??0),0),yellowRed:own.reduce((a,row)=>a+num(row.yellow_red_cards??row.yellowRedCards??row.stat2??0),0),red:own.reduce((a,row)=>a+num(row.red_cards??row.redCards??row.stat3??0),0)}
   }).sort((a,b)=>b.played-a.played||b.goals-a.goals||a.player.name.localeCompare(b.player.name))
   if(!selected.length)return `<div class="empty"><strong>Nincs jatekos ehhez a szezonhoz</strong>A Jatekosok oldalon adj jatekos merkozest ehhez a szezonhoz.</div>`
-  const playerRows=selected.map(row=>`<tr class="clickable" data-record-player="${esc(row.player.id)}"><td><strong>${esc(row.player.name)}</strong></td><td>${row.played}</td><td>${row.goals}</td><td>${row.yellow}</td><td>${row.yellowRed}</td><td>${row.red}</td></tr>`).join('')
+  const playerRows=selected.map(row=>`<tr class="clickable" data-record-player="${esc(row.player.id)}"><td><strong class="player-link">${esc(row.player.name)}</strong></td><td>${row.played}</td><td>${row.goals}</td><td>${row.yellow}</td><td>${row.yellowRed}</td><td>${row.red}</td></tr>`).join('')
   return `<div class="table-wrap"><table class="player-season-totals"><thead><tr><th>Jatekos</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th></tr></thead><tbody>${playerRows}</tbody></table></div>`
 }
 
@@ -135,7 +135,7 @@ function playerStatRows(season='all',sort='apps') {
 function bindPlayersTable(season='all',sort='apps') {
   const rows=playerStatRows(season,sort),body=document.querySelector('#players-table-body')
   if(!body)return
-  body.innerHTML=rows.map(x=>`<tr class="clickable" data-player="${esc(x.player.id)}"><td><strong>${esc(x.player.name)}</strong></td><td>${x.player.jersey_number??x.player.jerseyNumber??''}</td><td>${x.played}</td><td>${x.goals}</td><td>${x.yellow}</td><td>${x.yellowRed}</td><td>${x.red}</td><td>${canEdit()?`<button class="edit-player" data-edit-player="${esc(x.player.id)}">Szerkeszt</button><button class="delete-player" data-delete-player="${esc(x.player.id)}">Torol</button>`:''}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Nincs jatekos ehhez a szezonhoz.</td></tr>'
+  body.innerHTML=rows.map(x=>`<tr class="clickable" data-player="${esc(x.player.id)}"><td><strong class="player-link">${esc(x.player.name)}</strong></td><td>${x.player.jersey_number??x.player.jerseyNumber??''}</td><td>${x.played}</td><td>${x.goals}</td><td>${x.yellow}</td><td>${x.yellowRed}</td><td>${x.red}</td><td>${canEdit()?`<button class="edit-player" data-edit-player="${esc(x.player.id)}">Szerkeszt</button><button class="delete-player" data-delete-player="${esc(x.player.id)}">Torol</button>`:''}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Nincs jatekos ehhez a szezonhoz.</td></tr>'
   const count=document.querySelector('#players-count');if(count)count.textContent=`${rows.length} jatekos`
   body.querySelectorAll('.clickable').forEach(row=>row.addEventListener('click',event=>{if(!event.target.closest('button'))playerProfile(row.dataset.player)}))
   if(canEdit()){body.querySelectorAll('[data-edit-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();editPlayer(players.find(player=>player.id===button.dataset.editPlayer))}));body.querySelectorAll('[data-delete-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();deletePlayer(button.dataset.deletePlayer)}))}
