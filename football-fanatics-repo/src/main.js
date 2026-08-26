@@ -12,7 +12,9 @@ let players = []
 let playerMatches = []
 let seasons = []
 let playerSeasons = []
+let teams = []
 let selectedTeam = null
+let selectedTeamSeason = null
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))
 const canEdit = () => profile?.role === 'editor'
@@ -31,18 +33,20 @@ function renderAuth() {
 }
 
 async function load() {
-  const [matchResult, playerResult, playerMatchResult, seasonResult, playerSeasonResult] = await Promise.all([
+  const [matchResult, playerResult, playerMatchResult, seasonResult, playerSeasonResult, teamResult] = await Promise.all([
     supabase.from('matches').select('*').order('match_date', { ascending: false }),
     supabase.from('players').select('*').order('name'),
     supabase.from('player_match_stats').select('*').order('match_date', { ascending: false }),
     supabase.from('seasons').select('*').order('season'),
-    supabase.from('player_seasons').select('*').order('season')
+    supabase.from('player_seasons').select('*').order('season'),
+    supabase.from('teams').select('*').order('season').order('name')
   ])
   matches = matchResult.data || []
   players = playerResult.data?.length ? playerResult.data : staticPlayers.map(staticPlayer)
   playerMatches = playerMatchResult.data?.length ? playerMatchResult.data : staticPlayerMatches
   seasons = seasonResult.data || []
   playerSeasons = playerSeasonResult.data || []
+  teams = teamResult.data || []
 }
 
 function renderShell() {
@@ -88,7 +92,9 @@ function matchGoalsForAgainst(match) {
   return { gf: first, ga: second }
 }
 function matchResult(match) {
-  if (match?.result && ['W','D','L'].includes(String(match.result).toUpperCase())) return String(match.result).toUpperCase()
+  const stored = String(match?.result || '').toUpperCase()
+  if (['W','D','L'].includes(stored)) return stored
+  if (stored === 'U' || scoreParts(match)[0] === null) return 'U'
   const { gf, ga } = matchGoalsForAgainst(match)
   return gf > ga ? 'W' : gf < ga ? 'L' : 'D'
 }
@@ -202,19 +208,30 @@ function matchesPage() {
   return `<section class="toolbar"><div><p class="muted"><span id="matches-count">${matches.filter(match => selected === 'all' || matchSeason(match) === selected).length}</span> shared matches</p><label class="season-filter"><span>Szezon</span><select id="matches-season"><option value="all">Minden szezon</option>${names.map(name=>`<option value="${esc(name)}" ${name===selected?'selected':''}>${esc(seasonLabel(name))}</option>`).join('')}</select></label></div>${canEdit()?'<button id="add-match" class="primary">Merkozes hozzaadasa</button>':''}</section><div id="matches-table">${matchesTable(selected)}</div>`
 }
 
+function teamNameForMatch(match) {
+  return String(match.opponent || (isOurTeam(matchHome(match)) ? matchAway(match) : matchHome(match)) || 'Ismeretlen ellenfel').trim()
+}
 function teamRows(season) {
-  const data = matches.filter(match => season === 'all' || matchSeason(match) === normalizeSeason(season))
+  const normalized = season === 'all' ? 'all' : normalizeSeason(season)
   const grouped = new Map()
-  data.forEach(match => {
-    const opponent = String(match.opponent || (isOurTeam(matchHome(match)) ? matchAway(match) : matchHome(match)) || 'Ismeretlen ellenfel').trim()
-    if (!grouped.has(opponent)) grouped.set(opponent, { team: opponent, played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, matches: [] })
+  teams.filter(team => normalized === 'all' || normalizeSeason(team.season) === normalized).forEach(team => {
+    const key = String(team.name).trim()
+    if (!key) return
+    if (!grouped.has(key)) grouped.set(key, { team:key, teamIds:[], played:0, w:0, d:0, l:0, gf:0, ga:0, matches:[] })
+    grouped.get(key).teamIds.push(team.id)
+  })
+  matches.filter(match => normalized === 'all' || matchSeason(match) === normalized).forEach(match => {
+    const opponent = teamNameForMatch(match)
+    if (!grouped.has(opponent)) grouped.set(opponent, { team:opponent, teamIds:[], played:0, w:0, d:0, l:0, gf:0, ga:0, matches:[] })
     const row = grouped.get(opponent)
     const result = matchResult(match)
     const goals = matchGoalsForAgainst(match)
-    row.played += 1
-    row[result.toLowerCase()] += 1
-    row.gf += goals.gf
-    row.ga += goals.ga
+    if (['W','D','L'].includes(result)) {
+      row.played += 1
+      row[result.toLowerCase()] += 1
+      row.gf += goals.gf
+      row.ga += goals.ga
+    }
     row.matches.push(match)
   })
   return [...grouped.values()].map(row => ({ ...row, gd: row.gf - row.ga })).sort((a,b) => b.played-a.played || a.team.localeCompare(b.team))
@@ -226,12 +243,12 @@ function teamSummaryTable(season) {
 function teamDetail(team, season) {
   const row = teamRows(season).find(item => item.team === team)
   if (!row) return '<div class="empty"><strong>Valassz egy csapatot</strong>A reszletes merkozesek itt jelennek meg.</div>'
-  return `<section class="team-detail"><div class="section-head"><div><span class="eyebrow">Csapat adatlap</span><h2>${esc(row.team)}</h2><p class="muted">${row.played} merkozes, ${row.w} gyozelem, ${row.d} dontetlen, ${row.l} vereseg</p></div><span class="team-detail-record">${row.gf}-${row.ga} · ${row.gd > 0 ? '+' : ''}${row.gd} GA</span></div><div class="table-wrap"><table class="team-match-table"><thead><tr><th>Szezon</th><th>Datum</th><th>Ora</th><th>Hazai</th><th>Idegen</th><th>Eredmeny</th><th>Gol szerzo</th></tr></thead><tbody>${row.matches.sort((a,b)=>String(b.match_date||b.date||'').localeCompare(String(a.match_date||a.date||''))).map(match=>{const home=matchHome(match)||'Football Fanatics';const away=matchAway(match)||match.opponent||'Football Fanatics'; return `<tr><td>${esc(seasonLabel(matchSeason(match)))}</td><td>${esc(displayDate(match.match_date||match.date||match.matchDate))}</td><td>${esc(displayTime(match))}</td><td class="${isOurTeam(home)?'our-team':''}">${esc(home)}</td><td class="${isOurTeam(away)?'our-team':''}">${esc(away)}</td><td><span class="result ${resultClass(matchResult(match))}">${esc(match.score || matchResult(match))}</span></td><td class="scorers-cell">${esc(matchScorers(match) || '-')}</td></tr>`}).join('')}</tbody></table></div></section>`
+  return `<section class="team-detail"><div class="section-head"><div><span class="eyebrow">Csapat adatlap</span><h2>${esc(row.team)}</h2><p class="muted">${row.played} merkozes, ${row.w} gyozelem, ${row.d} dontetlen, ${row.l} vereseg</p></div><div class="team-detail-actions"><span class="team-detail-record">${row.gf}-${row.ga} · ${row.gd > 0 ? '+' : ''}${row.gd} GA</span>${canEdit()?`<button class="edit" data-team-edit="${esc(row.team)}">Csapat szerkesztese</button><button class="primary" data-team-add-match="${esc(row.team)}">Merkozes hozzaadasa</button>`:''}</div></div><div class="table-wrap"><table class="team-match-table"><thead><tr><th>Szezon</th><th>Datum</th><th>Ora</th><th>Hazai</th><th>Idegen</th><th>Eredmeny</th><th>Gol szerzo</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>${row.matches.sort((a,b)=>String(b.match_date||b.date||'').localeCompare(String(a.match_date||a.date||''))).map(match=>{const home=matchHome(match)||'Football Fanatics';const away=matchAway(match)||match.opponent||'Football Fanatics'; return `<tr><td>${esc(seasonLabel(matchSeason(match)))}</td><td>${esc(displayDate(match.match_date||match.date||match.matchDate))}</td><td>${esc(displayTime(match))}</td><td class="${isOurTeam(home)?'our-team':''}">${esc(home)}</td><td class="${isOurTeam(away)?'our-team':''}">${esc(away)}</td><td><span class="result ${resultClass(matchResult(match))}">${esc(match.score || matchResult(match))}</span></td><td class="scorers-cell">${esc(matchScorers(match) || '-')}</td>${canEdit()?`<td><button class="edit" data-team-match-edit="${esc(match.id)}">Szerkeszt</button></td>`:''}</tr>`}).join('')}</tbody></table></div></section>`
 }
 function teamsPage() {
   const names = seasonNames()
-  const selected = names[0] || 'all'
-  return `<section class="hero"><div><h2>Csapatok</h2><p class="muted">Minden ellenfelunk, szezononkent osszesitve. Kattints egy csapatra a reszletes merkozesekhez.</p></div></section><section class="panel"><div class="section-head"><div><h2>Merkozes rekord</h2><p class="muted">Nyert, dontetlen, vesztett, rugott es kapott golok</p></div><label class="season-filter"><span>Szezon</span><select id="teams-season"><option value="all">Minden szezon</option>${names.map(name=>`<option value="${esc(name)}" ${name===selected?'selected':''}>${esc(seasonLabel(name))}</option>`).join('')}</select></label></div><div id="team-summary">${teamSummaryTable(selected)}</div><div id="team-detail">${selectedTeam ? teamDetail(selectedTeam, selected) : ''}</div></section>`
+  const selected = selectedTeamSeason && names.includes(selectedTeamSeason) ? selectedTeamSeason : (names[0] || 'all')
+  return `<section class="hero"><div><h2>Csapatok</h2><p class="muted">Minden ellenfelunk, szezononkent osszesitve. Kattints egy csapatra a reszletes merkozesekhez.</p></div>${canEdit()?'<div class="profile-actions"><button class="secondary" id="add-team-season">Uj szezon</button><button class="primary" id="add-team">Uj csapat</button></div>':''}</section><section class="panel"><div class="section-head"><div><h2>Merkozes rekord</h2><p class="muted">Nyert, dontetlen, vesztett, rugott es kapott golok</p></div><label class="season-filter"><span>Szezon</span><select id="teams-season"><option value="all">Minden szezon</option>${names.map(name=>`<option value="${esc(name)}" ${name===selected?'selected':''}>${esc(seasonLabel(name))}</option>`).join('')}</select></label></div><div id="team-summary">${teamSummaryTable(selected)}</div><div id="team-detail">${selectedTeam ? teamDetail(selectedTeam, selected) : ''}</div></section>`
 }
 
 function playerProfile(id) {
@@ -276,11 +293,20 @@ function bindTeamsPage() {
     document.querySelectorAll('[data-team-detail]').forEach(button => button.addEventListener('click', () => {
       selectedTeam = button.dataset.teamDetail
       document.querySelector('#team-detail').innerHTML = teamDetail(selectedTeam, season)
+      bindTeamDetailActions(season)
       document.querySelector('#team-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }))
+    bindTeamDetailActions(season)
   }
-  select?.addEventListener('change', event => { selectedTeam = null; render(event.target.value) })
+  select?.addEventListener('change', event => { selectedTeam = null; selectedTeamSeason = event.target.value === 'all' ? null : event.target.value; render(event.target.value) })
+  document.querySelector('#add-team-season')?.addEventListener('click', addTeamSeason)
+  document.querySelector('#add-team')?.addEventListener('click', addTeam)
   render(select?.value || 'all')
+}
+function bindTeamDetailActions(season) {
+  document.querySelector('[data-team-add-match]')?.addEventListener('click', () => addTeamMatch(document.querySelector('[data-team-add-match]').dataset.teamAddMatch, season))
+  document.querySelector('[data-team-edit]')?.addEventListener('click', () => editTeam(document.querySelector('[data-team-edit]').dataset.teamEdit, season))
+  if (canEdit()) document.querySelectorAll('[data-team-match-edit]').forEach(button => button.addEventListener('click', () => editMatch({ ...matches.find(match => String(match.id) === button.dataset.teamMatchEdit), returnPage:'teams' })))
 }
 
 function showPage(page) {
@@ -338,13 +364,18 @@ function dialog(title, body, save) {
   element.querySelector('#save').addEventListener('click', async event => { event.preventDefault(); await save(element) })
 }
 
-async function addGlobalSeason() { dialog('Uj szezon', '<input id="season" placeholder="Pelda: 2026/2027" required><input id="note" placeholder="Megjegyzes">', async element => { const name = element.querySelector('#season').value.trim(); if (!name) return; const { error } = await supabase.from('seasons').insert({ season:name, notes:element.querySelector('#note').value }); if (error) return alert(error.message); element.close(); element.remove(); await load(); showPage('dashboard') }) }
+async function addTeamSeason() { dialog('Uj szezon', '<input id="season" placeholder="Pelda: 2026/2027" required><input id="note" placeholder="Megjegyzes">', async element => { const name = normalizeSeason(element.querySelector('#season').value.trim()); if (!name) return; const { error } = await supabase.from('seasons').upsert({ season:name, notes:element.querySelector('#note').value }, { onConflict:'season' }); if (error) return alert(error.message); element.close(); element.remove(); await load(); selectedTeam = null; selectedTeamSeason = name; showPage('teams') }) }
+async function addTeam() { const names = seasonNames(); dialog('Uj csapat', `<input id="name" placeholder="Csapat neve" required><label>Szezon<input id="season" list="season-options" value="${esc(names[0] || '')}" placeholder="Pelda: 2026/2027" required><datalist id="season-options">${names.map(name=>`<option value="${esc(name)}">`).join('')}</datalist></label>`, async element => { const name = element.querySelector('#name').value.trim(); const season = normalizeSeason(element.querySelector('#season').value.trim()); if (!name || !season) return; const { error } = await supabase.from('teams').insert({ name, season }); if (error) return alert(error.message); element.close(); element.remove(); await load(); selectedTeam = name; selectedTeamSeason = season; showPage('teams') }) }
+async function editTeam(team, season) { dialog('Csapat szerkesztese', `<input id="name" value="${esc(team)}" required>`, async element => { const name = element.querySelector('#name').value.trim(); const normalized = season === 'all' ? null : normalizeSeason(season); if (!name || name === team) return element.close(); const ids = teams.filter(row => row.name === team && (!normalized || normalizeSeason(row.season) === normalized)).map(row => row.id); if (ids.length) { const { error } = await supabase.from('teams').update({ name }).in('id', ids); if (error) return alert(error.message) } const oldMatches = matches.filter(match => teamNameForMatch(match) === team && (!normalized || matchSeason(match) === normalized)); for (const match of oldMatches) { const payload = { opponent:name }; if (match.home_team && match.home_team === team) payload.home_team = name; if (match.away_team && match.away_team === team) payload.away_team = name; const { error } = await supabase.from('matches').update(payload).eq('id', match.id); if (error) return alert(error.message) } element.close(); element.remove(); await load(); selectedTeam = name; selectedTeamSeason = normalized; showPage('teams') }) }
+async function addTeamMatch(team, season) { await editMatch({ opponent:team, season:season === 'all' ? (seasonNames()[0] || '') : season, home_team:'Football Fanatics', away_team:team, competition:'League', result:'U', returnPage:'teams' }) }
+
+async function addGlobalSeason() { dialog('Uj szezon', '<input id="season" placeholder="Pelda: 2026/2027" required><input id="note" placeholder="Megjegyzes">', async element => { const name = normalizeSeason(element.querySelector('#season').value.trim()); if (!name) return; const { error } = await supabase.from('seasons').upsert({ season:name, notes:element.querySelector('#note').value }, { onConflict:'season' }); if (error) return alert(error.message); element.close(); element.remove(); await load(); showPage('dashboard') }) }
 async function addPlayerSeason(player) { dialog('Szezon hozzaadasa', '<input id="season" placeholder="Pelda: 2026/2027" required><input id="note" placeholder="Megjegyzes">', async element => { const { error } = await supabase.from('player_seasons').upsert({ player_id:player.id, season:normalizeSeason(element.querySelector('#season').value.trim()), notes:element.querySelector('#note').value }, { onConflict:'player_id,season' }); if (error) return alert(error.message); element.close(); element.remove(); await load(); playerProfile(player.id) }) }
 async function addPlayer() { const names = seasonNames(); dialog('Uj jatekos', `<input id="name" placeholder="Jatekos neve" required><label>Mez szam<input id="jersey" type="number" min="0"></label><label>Aktiv szezon<select id="season">${names.map(name => `<option>${esc(name)}</option>`).join('')}</select></label><label>Bajnoki megjelenes<input id="la" type="number" min="0" value="0"></label><label>Kupa megjelenes<input id="ca" type="number" min="0" value="0"></label><label>Bajnoki gol/ok<input id="lg" type="number" min="0" value="0"></label><label>Kupa gol/ok<input id="cg" type="number" min="0" value="0"></label>`, async element => { const name = element.querySelector('#name').value.trim(); const id = playerId(name); const { error } = await supabase.from('players').insert({ id, name, jersey_number:+element.querySelector('#jersey').value || null, league_apps:+element.querySelector('#la').value, cup_apps:+element.querySelector('#ca').value, league_goals:+element.querySelector('#lg').value, cup_goals:+element.querySelector('#cg').value }); if (error) return alert(error.message); const { error: seasonError } = await supabase.from('player_seasons').upsert({ player_id:id, season:element.querySelector('#season').value }, { onConflict:'player_id,season' }); if (seasonError) return alert(seasonError.message); element.close(); element.remove(); await load(); showPage('players') }) }
 async function editPlayer(player) { dialog('Jatekos szerkesztese', `<input id="name" value="${esc(player.name)}" required><label>Mez szam<input id="jersey" type="number" min="0" value="${player.jersey_number ?? player.jerseyNumber ?? ''}"></label><label>Bajnoki megjelenes<input id="la" type="number" min="0" value="${player.league_apps ?? player.leagueApps ?? 0}"></label><label>Kupa megjelenes<input id="ca" type="number" min="0" value="${player.cup_apps ?? player.cupApps ?? 0}"></label><label>Bajnoki gol/ok<input id="lg" type="number" min="0" value="${player.league_goals ?? player.leagueGoals ?? 0}"></label><label>Kupa gol/ok<input id="cg" type="number" min="0" value="${player.cup_goals ?? player.cupGoals ?? 0}"></label>`, async element => { const { error } = await supabase.from('players').update({ name:element.querySelector('#name').value, jersey_number:+element.querySelector('#jersey').value || null, league_apps:+element.querySelector('#la').value, cup_apps:+element.querySelector('#ca').value, league_goals:+element.querySelector('#lg').value, cup_goals:+element.querySelector('#cg').value }).eq('id', player.id); if (error) return alert(error.message); element.close(); element.remove(); await load(); showPage('players') }) }
 async function addPlayerMatch(player, existingSeasons) { const options = existingSeasons.length ? existingSeasons : seasonNames(); dialog('Merkozes hozzaadasa', `<select id="season">${options.map(name => `<option>${esc(name)}</option>`).join('') || '<option>2026/2027</option>'}</select><select id="comp"><option value="League">Bajnoksag</option><option value="Cup">Kupa</option></select><input id="date" type="date"><input id="time" type="time"><input id="opp" placeholder="Ellenfel" required><input id="score" placeholder="Allas"><select id="result"><option>W</option><option>D</option><option>L</option><option>U</option></select><label>Jatszott<input id="played" type="number" min="0" value="1"></label><label>Gol<input id="goals" type="number" min="0" value="0"></label><label>🟨<input id="y" type="number" min="0" value="0"></label><label>🟨🟥<input id="yr" type="number" min="0" value="0"></label><label>🟥<input id="r" type="number" min="0" value="0"></label>`, async element => { const { error } = await supabase.from('player_match_stats').insert({ player_id:player.id, season:normalizeSeason(element.querySelector('#season').value), competition:element.querySelector('#comp').value, match_date:element.querySelector('#date').value || null, match_time:element.querySelector('#time').value || null, opponent:element.querySelector('#opp').value, score:element.querySelector('#score').value, result:element.querySelector('#result').value, played:+element.querySelector('#played').value, goals:+element.querySelector('#goals').value, yellow_cards:+element.querySelector('#y').value, yellow_red_cards:+element.querySelector('#yr').value, red_cards:+element.querySelector('#r').value }); if (error) return alert(error.message); element.close(); element.remove(); await load(); playerProfile(player.id) }) }
 async function editPlayerMatch(row) { dialog('Jatekos merkozes szerkesztese', `<input id="opp" value="${esc(row.opponent)}"><input id="score" value="${esc(row.score || '')}" placeholder="Allas"><select id="result"><option ${row.result === 'W' ? 'selected' : ''}>W</option><option ${row.result === 'D' ? 'selected' : ''}>D</option><option ${row.result === 'L' ? 'selected' : ''}>L</option><option ${row.result === 'U' ? 'selected' : ''}>U</option></select><label>Jatszott<input id="played" type="number" min="0" value="${row.played ?? 1}"></label><label>Gol<input id="goals" type="number" min="0" value="${row.goals ?? 0}"></label><label>🟨<input id="y" type="number" min="0" value="${row.yellow_cards ?? row.yellowCards ?? row.stat1 ?? 0}"></label><label>🟨🟥<input id="yr" type="number" min="0" value="${row.yellow_red_cards ?? row.yellowRedCards ?? row.stat2 ?? 0}"></label><label>🟥<input id="r" type="number" min="0" value="${row.red_cards ?? row.redCards ?? row.stat3 ?? 0}"></label>`, async element => { const { error } = await supabase.from('player_match_stats').update({ opponent:element.querySelector('#opp').value, score:element.querySelector('#score').value, result:element.querySelector('#result').value, played:+element.querySelector('#played').value, goals:+element.querySelector('#goals').value, yellow_cards:+element.querySelector('#y').value, yellow_red_cards:+element.querySelector('#yr').value, red_cards:+element.querySelector('#r').value }).eq('id', row.id); if (error) return alert(error.message); element.close(); element.remove(); await load(); playerProfile(playerMatchPlayerId(row)) }) }
-async function editMatch(match = {}) { const edit = Boolean(match.id); dialog(edit ? 'Merkozes szerkesztese' : 'Merkozes hozzaadasa', `<input id="date" type="date" value="${match.match_date || ''}" required><input id="time" type="time" value="${match.match_time || match.time || ''}"><input id="opp" value="${esc(match.opponent || '')}" placeholder="Ellenfel" required><select id="comp"><option value="League" ${match.competition === 'League' ? 'selected' : ''}>Bajnoksag</option><option value="Cup" ${match.competition === 'Cup' ? 'selected' : ''}>Kupa</option></select><input id="score" value="${esc(match.score || '')}" placeholder="Allas"><select id="result"><option ${match.result === 'W' ? 'selected' : ''}>W</option><option ${match.result === 'D' ? 'selected' : ''}>D</option><option ${match.result === 'L' ? 'selected' : ''}>L</option><option ${!match.result ? 'selected' : ''}>U</option></select><textarea id="notes" placeholder="Golszerzok es megjegyzesek">${esc(match.notes || '')}</textarea>`, async element => { const payload = { match_date:element.querySelector('#date').value, match_time:element.querySelector('#time').value || null, opponent:element.querySelector('#opp').value, competition:element.querySelector('#comp').value, score:element.querySelector('#score').value, result:element.querySelector('#result').value, notes:element.querySelector('#notes').value }; const request = edit ? supabase.from('matches').update(payload).eq('id', match.id) : supabase.from('matches').insert(payload); const { error } = await request; if (error) return alert(error.message); element.close(); element.remove(); await load(); showPage('matches') }) }
+async function editMatch(match = {}) { const edit = Boolean(match.id); const returnPage = match.returnPage || 'matches'; const names = seasonNames(); const seasonValue = matchSeason(match) || names[0] || ''; const homeValue = matchHome(match) || 'Football Fanatics'; const awayValue = matchAway(match) || match.opponent || ''; dialog(edit ? 'Merkozes szerkesztese' : 'Merkozes hozzaadasa', `<label>Szezon<input id="season" list="match-season-options" value="${esc(seasonValue)}" required><datalist id="match-season-options">${names.map(name=>`<option value="${esc(name)}">`).join('')}</datalist></label><label>Datum<input id="date" type="date" value="${match.match_date || ''}" required></label><label>Ora<input id="time" type="time" value="${displayTime(match)}"></label><label>Hazai<input id="home" value="${esc(homeValue)}" required></label><label>Idegen<input id="away" value="${esc(awayValue)}" required></label><input id="opp" value="${esc(match.opponent || awayValue || homeValue)}" placeholder="Ellenfel" required><select id="comp"><option value="League" ${match.competition === 'League' ? 'selected' : ''}>Bajnoksag</option><option value="Cup" ${match.competition === 'Cup' ? 'selected' : ''}>Kupa</option></select><input id="score" value="${esc(match.score || '')}" placeholder="Allas"><select id="result"><option ${match.result === 'W' ? 'selected' : ''}>W</option><option ${match.result === 'D' ? 'selected' : ''}>D</option><option ${match.result === 'L' ? 'selected' : ''}>L</option><option ${!match.result || match.result === 'U' ? 'selected' : ''}>U</option></select><label>Gol szerzo<input id="scorers" value="${esc(match.goal_scorers || match.goalScorers || match.scorers || '')}" placeholder="Gol szerzo"></label><textarea id="notes" placeholder="Megjegyzesek">${esc(match.notes || '')}</textarea>`, async element => { const payload = { season:normalizeSeason(element.querySelector('#season').value), match_date:element.querySelector('#date').value, match_time:element.querySelector('#time').value || null, home_team:element.querySelector('#home').value.trim(), away_team:element.querySelector('#away').value.trim(), opponent:element.querySelector('#opp').value.trim(), competition:element.querySelector('#comp').value, score:element.querySelector('#score').value, result:element.querySelector('#result').value, goal_scorers:element.querySelector('#scorers').value, notes:element.querySelector('#notes').value }; const request = edit ? supabase.from('matches').update(payload).eq('id', match.id) : supabase.from('matches').insert(payload); const { error } = await request; if (error) return alert(error.message); element.close(); element.remove(); await load(); showPage(returnPage) }) }
 
 async function boot() { const { data } = await supabase.auth.getSession(); session = data.session; if (session) { const { data: userProfile } = await supabase.from('profiles').select('role').eq('id', session.user.id).single(); profile = userProfile || { role:'viewer' } } else { profile = { role:'viewer' } } await load(); renderShell() }
 supabase.auth.onAuthStateChange((_event, next) => { session = next; boot() })
