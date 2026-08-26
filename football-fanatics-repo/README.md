@@ -1,14 +1,7 @@
-# Football Fanatics phone-friendly update
+# Football Fanatics active-season player record
 
-This package keeps the public viewer and Alfred-only editor access, then adds a mobile-first layout:
+The Dashboard now keeps the full team table and adds `Jatekos merkozesrekord` directly underneath it. The selected season controls both tables. The player record shows Jatekos, Szezon, Datum, Sorozat, Ellenfel, Allas, Eredmeny, Jatszott, Gol, and the three card columns. Each row is clickable and opens that player profile.
 
-- compact navigation and logos on small screens
-- 44px touch targets for buttons, links, selects, and forms
-- responsive controls that stack cleanly
-- intentional horizontal scrolling for wide stat tables, with a swipe hint
-- dialogs and editor forms constrained to the phone viewport
-- readable headers and spacing at 320px and up
+The Dashboard also keeps `Uj szezon`; `Jatekosok` keeps `Uj jatekos`, `Mez szam`, and player editing.
 
-To update the existing GitHub/Vercel app, replace the repository contents with this folder, commit to `main`, and let Vercel redeploy. The existing Supabase public-viewer SQL remains included under `supabase/public-viewer.sql`.
-
-Only the authenticated `editor` role can add, edit, or delete data. Public visitors can view the app without signing in.
+Replace `src/main.js` and `src/styles.css`, keep the JSON files, commit to `main`, and let Vercel redeploy.
