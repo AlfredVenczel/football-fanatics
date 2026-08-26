@@ -1,22 +1,14 @@
-# Football Fanatics controls update
+# Football Fanatics phone-friendly update
 
-Adds:
-- Dashboard title `Tablazat` and an `Uj szezon` button.
-- Players title `Jatekosok`, an `Uj jatekos` button, and `Mez szam` after `Jatekos`.
-- Jersey numbers loaded from the Excel player sheet.
-- Existing clickable player profiles and per-season match records.
-- Existing editor-only controls and W/D/L colors.
-- Card icons only in the player-history header.
+This package keeps the public viewer and Alfred-only editor access, then adds a mobile-first layout:
 
-Replace inside the existing `football-fanatics-repo`:
-- `src/main.js`
-- `src/styles.css`
-- `src/players.json`
-- `src/player_matches.json`
-- `src/standings.json`
+- compact navigation and logos on small screens
+- 44px touch targets for buttons, links, selects, and forms
+- responsive controls that stack cleanly
+- intentional horizontal scrolling for wide stat tables, with a swipe hint
+- dialogs and editor forms constrained to the phone viewport
+- readable headers and spacing at 320px and up
 
-Keep `src/lib/supabase.js`, `index.html`, `package.json`, and `vercel.json`.
+To update the existing GitHub/Vercel app, replace the repository contents with this folder, commit to `main`, and let Vercel redeploy. The existing Supabase public-viewer SQL remains included under `supabase/public-viewer.sql`.
 
-In Supabase SQL Editor, run `supabase/player_and_season_controls.sql` once. It adds jersey numbers, named card columns, and the seasons table needed by `Uj szezon`.
-
-Commit to `main`; Vercel should redeploy automatically.
+Only the authenticated `editor` role can add, edit, or delete data. Public visitors can view the app without signing in.
