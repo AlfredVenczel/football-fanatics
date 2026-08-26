@@ -12,6 +12,7 @@ let players = []
 let playerMatches = []
 let seasons = []
 let playerSeasons = []
+let selectedTeam = null
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))
 const canEdit = () => profile?.role === 'editor'
@@ -45,15 +46,59 @@ async function load() {
 }
 
 function renderShell() {
-  app.innerHTML = `<div class="shell"><aside class="sidebar"><div class="brand"><div><strong>Football Fanatics</strong><small>team hub</small></div></div><nav><button data-page="dashboard" class="active">Tabella</button><button data-page="matches">Merkozesek</button><button data-page="players">Jatekosok</button></nav><div class="sidebar-logo-slot"><img class="sidebar-logo" src="/football-fanatics-logo.webp" alt="Football Fanatics logo"><img class="league-logo" src="/sepsi-logo.webp" alt="Sepsi Minifotbal logo"><span class="league-label">Sepsi Minifotbal</span></div><div class="side-foot"><span>${session ? esc(session.user.email) : 'Public view'}</span><b>${canEdit() ? 'Editor' : 'Viewer'}</b>${session ? '<button id="signout" class="ghost">Sign out</button>' : '<button id="admin-login" class="ghost">Admin login</button>'}</div></aside><main class="main"><header><div><span class="eyebrow">${session ? 'Authenticated workspace' : 'Public team workspace'}</span><h1 id="page-title">Tabella</h1></div><span class="role">${canEdit() ? 'EDIT ACCESS' : 'PUBLIC VIEW'}</span></header><section id="content"></section></main></div>`
+  app.innerHTML = `<div class="shell"><aside class="sidebar"><div class="brand"><div><strong>Football Fanatics</strong><small>team hub</small></div></div><nav><button data-page="dashboard" class="active">Tabella</button><button data-page="matches">Merkozesek</button><button data-page="players">Jatekosok</button><button data-page="teams">Csapatok</button></nav><div class="sidebar-logo-slot"><img class="sidebar-logo" src="/football-fanatics-logo.webp" alt="Football Fanatics logo"><img class="league-logo" src="/sepsi-logo.webp" alt="Sepsi Minifotbal logo"><span class="league-label">Sepsi Minifotbal</span></div><div class="side-foot"><span>${session ? esc(session.user.email) : 'Public view'}</span><b>${canEdit() ? 'Editor' : 'Viewer'}</b>${session ? '<button id="signout" class="ghost">Sign out</button>' : '<button id="admin-login" class="ghost">Admin login</button>'}</div></aside><main class="main"><header><div><span class="eyebrow">${session ? 'Authenticated workspace' : 'Public team workspace'}</span><h1 id="page-title">Tabella</h1></div><span class="role">${canEdit() ? 'EDIT ACCESS' : 'PUBLIC VIEW'}</span></header><section id="content"></section></main></div>`
   document.querySelectorAll('[data-page]').forEach(button => button.addEventListener('click', () => showPage(button.dataset.page)))
   document.querySelector('#signout')?.addEventListener('click', () => supabase.auth.signOut())
   document.querySelector('#admin-login')?.addEventListener('click', openAdminLogin)
   showPage('dashboard')
 }
 
+function seasonFromDate(value) {
+  const match = String(value || '').match(/(20\d\d)[-\/](\d{1,2})[-\/](\d{1,2})/)
+  if (!match) return ''
+  const year = Number(match[1])
+  const month = Number(match[2])
+  return month >= 8 ? `${year}-${year + 1}` : `${year - 1}-${year}`
+}
+function matchSeason(match) {
+  return normalizeSeason(match?.season || match?.season_name || match?.seasonName || seasonFromDate(match?.match_date || match?.date || match?.matchDate))
+}
+function matchHome(match) {
+  const explicit = match?.home_team || match?.homeTeam || match?.home || match?.hazai
+  if (explicit) return explicit
+  return match?.is_home === false || match?.isHome === false ? (match.opponent || '') : 'Football Fanatics'
+}
+function matchAway(match) {
+  const explicit = match?.away_team || match?.awayTeam || match?.away || match?.idegen
+  if (explicit) return explicit
+  return match?.is_home === false || match?.isHome === false ? 'Football Fanatics' : (match.opponent || '')
+}
+function matchScorers(match) { return match?.goal_scorers || match?.goalscorers || match?.scorers || match?.goalScorers || match?.gol_szerzo || match?.notes || '' }
+function scoreParts(match) {
+  const found = String(match?.score || '').match(/(\d+)\s*[-:]\s*(\d+)/)
+  return found ? [Number(found[1]), Number(found[2])] : [null, null]
+}
+function isOurTeam(name) { return String(name || '').toLowerCase().includes('football fanatics') }
+function matchGoalsForAgainst(match) {
+  const [first, second] = scoreParts(match)
+  if (first === null) return { gf: 0, ga: 0 }
+  const home = matchHome(match), away = matchAway(match)
+  if (isOurTeam(home)) return { gf: first, ga: second }
+  if (isOurTeam(away)) return { gf: second, ga: first }
+  return { gf: first, ga: second }
+}
+function matchResult(match) {
+  if (match?.result && ['W','D','L'].includes(String(match.result).toUpperCase())) return String(match.result).toUpperCase()
+  const { gf, ga } = matchGoalsForAgainst(match)
+  return gf > ga ? 'W' : gf < ga ? 'L' : 'D'
+}
+function displayDate(value) {
+  const found = String(value || '').match(/(20\d\d)[-\/](\d{1,2})[-\/](\d{1,2})/)
+  return found ? `${found[3].padStart(2,'0')}.${found[2].padStart(2,'0')}.${found[1]}` : String(value || '')
+}
+function displayTime(match) { return match?.match_time || match?.time || match?.matchTime || '' }
 function seasonNames() {
-  return [...new Set([...Object.keys(standings), ...seasons.map(row => row.season), ...playerSeasons.map(row => row.season), ...playerMatches.map(row => row.season)].filter(Boolean).map(normalizeSeason))].sort().reverse()
+  return [...new Set([...Object.keys(standings), ...seasons.map(row => row.season), ...playerSeasons.map(row => row.season), ...playerMatches.map(row => row.season), ...matches.map(matchSeason)].filter(Boolean).map(normalizeSeason))].sort().reverse()
 }
 
 function teamTable(season) {
@@ -147,8 +192,46 @@ function bindMatchPopups(){document.querySelectorAll('[data-match-detail]').forE
 function bindPlayerDeleteButtons(){document.querySelectorAll('[data-delete-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();deletePlayer(button.dataset.deletePlayer)}))}
 async function deletePlayer(id){const player=players.find(row=>row.id===id);if(!player)return;if(!confirm(`Biztosan torlod ${player.name} jatekost es a hozza tartozo merkozesadatait?`))return;const{error}=await supabase.from('players').delete().eq('id',id);if(error){alert(error.message);return}await load();showPage('players')}
 
+function matchesTable(season) {
+  const data = matches.filter(match => season === 'all' || matchSeason(match) === normalizeSeason(season))
+  return `<div class="table-wrap"><table><thead><tr><th>Szezon</th><th>Datum</th><th>Ido</th><th>Ellenfel</th><th>Sorozat</th><th>Allas</th><th>Eredmeny</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>${data.map(match=>`<tr><td>${esc(seasonLabel(matchSeason(match)))}</td><td>${esc(displayDate(match.match_date||match.date||match.matchDate))}</td><td>${esc(displayTime(match))}</td><td><button class="team-link" data-match-detail="${esc(match.id)}">${esc(match.opponent || matchAway(match) || matchHome(match))}</button></td><td>${match.competition==='League'?'Bajnoksag':'Kupa'}</td><td>${esc(match.score||'vs')}</td><td><span class="result ${resultClass(matchResult(match))}">${esc(matchResult(match))}</span></td>${canEdit()?`<td><button class="edit" data-match-edit="${esc(match.id)}">Szerkeszt</button></td>`:''}</tr>`).join('') || '<tr><td colspan="8" class="empty">Nincs merkozes ehhez a szezonhoz.</td></tr>'}</tbody></table></div>`
+}
 function matchesPage() {
-  return `<section class="toolbar"><p class="muted">${matches.length} shared matches</p>${canEdit()?'<button id="add-match" class="primary">Merkozes hozzaadasa</button>':''}</section><div class="table-wrap"><table><thead><tr><th>Datum</th><th>Ido</th><th>Ellenfel</th><th>Sorozat</th><th>Allas</th><th>Eredmeny</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>${matches.map(match=>`<tr><td>${esc(match.match_date||'')}</td><td>${esc(match.match_time || match.time || '')}</td><td><button class="team-link" data-match-detail="${esc(match.id)}">${esc(match.opponent)}</button></td><td>${match.competition==='League'?'Bajnoksag':'Kupa'}</td><td>${esc(match.score||'vs')}</td><td><span class="result ${resultClass(match.result)}">${esc(match.result||'Upcoming')}</span></td>${canEdit()?`<td><button class="edit" data-match-edit="${esc(match.id)}">Szerkeszt</button></td>`:''}</tr>`).join('')}</tbody></table></div>`
+  const names = seasonNames()
+  const selected = names[0] || 'all'
+  return `<section class="toolbar"><div><p class="muted"><span id="matches-count">${matches.filter(match => selected === 'all' || matchSeason(match) === selected).length}</span> shared matches</p><label class="season-filter"><span>Szezon</span><select id="matches-season"><option value="all">Minden szezon</option>${names.map(name=>`<option value="${esc(name)}" ${name===selected?'selected':''}>${esc(seasonLabel(name))}</option>`).join('')}</select></label></div>${canEdit()?'<button id="add-match" class="primary">Merkozes hozzaadasa</button>':''}</section><div id="matches-table">${matchesTable(selected)}</div>`
+}
+
+function teamRows(season) {
+  const data = matches.filter(match => season === 'all' || matchSeason(match) === normalizeSeason(season))
+  const grouped = new Map()
+  data.forEach(match => {
+    const opponent = String(match.opponent || (isOurTeam(matchHome(match)) ? matchAway(match) : matchHome(match)) || 'Ismeretlen ellenfel').trim()
+    if (!grouped.has(opponent)) grouped.set(opponent, { team: opponent, played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, matches: [] })
+    const row = grouped.get(opponent)
+    const result = matchResult(match)
+    const goals = matchGoalsForAgainst(match)
+    row.played += 1
+    row[result.toLowerCase()] += 1
+    row.gf += goals.gf
+    row.ga += goals.ga
+    row.matches.push(match)
+  })
+  return [...grouped.values()].map(row => ({ ...row, gd: row.gf - row.ga })).sort((a,b) => b.played-a.played || a.team.localeCompare(b.team))
+}
+function teamSummaryTable(season) {
+  const rows = teamRows(season)
+  return `<div class="table-wrap"><table class="team-summary-table"><thead><tr><th>Csapat</th><th>Meccs</th><th>Nyert</th><th>Döntetlen</th><th>Vesztett</th><th>RG</th><th>KG</th><th>GA</th></tr></thead><tbody>${rows.map(row=>`<tr><td><button class="team-link" data-team-detail="${esc(row.team)}">${esc(row.team)}</button></td><td>${row.played}</td><td>${row.w}</td><td>${row.d}</td><td>${row.l}</td><td>${row.gf}</td><td>${row.ga}</td><td>${row.gd > 0 ? '+' : ''}${row.gd}</td></tr>`).join('') || '<tr><td colspan="8" class="empty">Nincs csapat ehhez a szezonhoz.</td></tr>'}</tbody></table></div>`
+}
+function teamDetail(team, season) {
+  const row = teamRows(season).find(item => item.team === team)
+  if (!row) return '<div class="empty"><strong>Valassz egy csapatot</strong>A reszletes merkozesek itt jelennek meg.</div>'
+  return `<section class="team-detail"><div class="section-head"><div><span class="eyebrow">Csapat adatlap</span><h2>${esc(row.team)}</h2><p class="muted">${row.played} merkozes, ${row.w} gyozelem, ${row.d} dontetlen, ${row.l} vereseg</p></div><span class="team-detail-record">${row.gf}-${row.ga} · ${row.gd > 0 ? '+' : ''}${row.gd} GA</span></div><div class="table-wrap"><table class="team-match-table"><thead><tr><th>Szezon</th><th>Datum</th><th>Ora</th><th>Hazai</th><th>Idegen</th><th>Eredmeny</th><th>Gol szerzo</th></tr></thead><tbody>${row.matches.sort((a,b)=>String(b.match_date||b.date||'').localeCompare(String(a.match_date||a.date||''))).map(match=>{const home=matchHome(match)||'Football Fanatics';const away=matchAway(match)||match.opponent||'Football Fanatics'; return `<tr><td>${esc(seasonLabel(matchSeason(match)))}</td><td>${esc(displayDate(match.match_date||match.date||match.matchDate))}</td><td>${esc(displayTime(match))}</td><td class="${isOurTeam(home)?'our-team':''}">${esc(home)}</td><td class="${isOurTeam(away)?'our-team':''}">${esc(away)}</td><td><span class="result ${resultClass(matchResult(match))}">${esc(match.score || matchResult(match))}</span></td><td class="scorers-cell">${esc(matchScorers(match) || '-')}</td></tr>`}).join('')}</tbody></table></div></section>`
+}
+function teamsPage() {
+  const names = seasonNames()
+  const selected = names[0] || 'all'
+  return `<section class="hero"><div><h2>Csapatok</h2><p class="muted">Minden ellenfelunk, szezononkent osszesitve. Kattints egy csapatra a reszletes merkozesekhez.</p></div></section><section class="panel"><div class="section-head"><div><h2>Merkozes rekord</h2><p class="muted">Nyert, dontetlen, vesztett, rugott es kapott golok</p></div><label class="season-filter"><span>Szezon</span><select id="teams-season"><option value="all">Minden szezon</option>${names.map(name=>`<option value="${esc(name)}" ${name===selected?'selected':''}>${esc(seasonLabel(name))}</option>`).join('')}</select></label></div><div id="team-summary">${teamSummaryTable(selected)}</div><div id="team-detail">${selectedTeam ? teamDetail(selectedTeam, selected) : ''}</div></section>`
 }
 
 function playerProfile(id) {
@@ -173,9 +256,36 @@ function renderPlayerHistory(rows, season) {
   if (canEdit()) document.querySelectorAll('[data-player-match-edit]').forEach(button => button.addEventListener('click', () => editPlayerMatch(rows.find(row => String(row.id) === button.dataset.playerMatchEdit))))
 }
 
+function bindMatchesPage() {
+  const select = document.querySelector('#matches-season')
+  const render = season => {
+    const data = matches.filter(match => season === 'all' || matchSeason(match) === normalizeSeason(season))
+    document.querySelector('#matches-count').textContent = data.length
+    document.querySelector('#matches-table').innerHTML = matchesTable(season)
+    bindMatchPopups()
+    if (canEdit()) document.querySelectorAll('[data-match-edit]').forEach(button => button.addEventListener('click', () => editMatch(matches.find(match => String(match.id) === button.dataset.matchEdit))))
+  }
+  select?.addEventListener('change', event => render(event.target.value))
+  render(select?.value || 'all')
+}
+function bindTeamsPage() {
+  const select = document.querySelector('#teams-season')
+  const render = season => {
+    document.querySelector('#team-summary').innerHTML = teamSummaryTable(season)
+    document.querySelector('#team-detail').innerHTML = selectedTeam ? teamDetail(selectedTeam, season) : ''
+    document.querySelectorAll('[data-team-detail]').forEach(button => button.addEventListener('click', () => {
+      selectedTeam = button.dataset.teamDetail
+      document.querySelector('#team-detail').innerHTML = teamDetail(selectedTeam, season)
+      document.querySelector('#team-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }))
+  }
+  select?.addEventListener('change', event => { selectedTeam = null; render(event.target.value) })
+  render(select?.value || 'all')
+}
+
 function showPage(page) {
   document.querySelectorAll('[data-page]').forEach(button => button.classList.toggle('active', button.dataset.page === page))
-  document.querySelector('#page-title').textContent = page === 'dashboard' ? 'Tabella' : page === 'players' ? 'Jatekosok' : 'Merkozesek'
+  document.querySelector('#page-title').textContent = page === 'dashboard' ? 'Tabella' : page === 'players' ? 'Jatekosok' : page === 'teams' ? 'Csapatok' : 'Merkozesek'
   const content = document.querySelector('#content')
   if (page === 'dashboard') {
     content.innerHTML = dashboard()
@@ -195,13 +305,13 @@ function showPage(page) {
       document.querySelector('#add-player').addEventListener('click', addPlayer)
       bindPlayerDeleteButtons()
     }
+  } else if (page === 'teams') {
+    content.innerHTML = teamsPage()
+    bindTeamsPage()
   } else {
     content.innerHTML = matchesPage()
-    bindMatchPopups()
-    if (canEdit()) {
-      document.querySelector('#add-match').addEventListener('click', () => editMatch())
-      document.querySelectorAll('[data-match-edit]').forEach(button => button.addEventListener('click', () => editMatch(matches.find(match => String(match.id) === button.dataset.matchEdit))))
-    }
+    bindMatchesPage()
+    if (canEdit()) document.querySelector('#add-match')?.addEventListener('click', () => editMatch())
   }
 }
 
