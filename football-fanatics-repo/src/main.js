@@ -207,6 +207,18 @@ async function deleteMatch(id, returnPage = 'matches', team = null, season = nul
   showPage(returnPage)
 }
 
+async function deletePlayerMatch(row) {
+  if (!row) return
+  const playerName = playerNameById(playerMatchPlayerId(row)) || 'jatekos'
+  const opponent = row.opponent || 'merkozes'
+  const date = displayDate(row.match_date || row.matchDate || '')
+  if (!confirm(`Biztosan torlod ${playerName} ${opponent} elleni ${date ? `${date} ` : ''}merkozeset?`)) return
+  const { error } = await supabase.from('player_match_stats').delete().eq('id', row.id)
+  if (error) return alert(error.message)
+  await load()
+  playerProfile(playerMatchPlayerId(row))
+}
+
 function bindMatchPopups(){document.querySelectorAll('[data-match-detail]').forEach(button=>button.addEventListener('click',()=>{const match=matches.find(row=>String(row.id)===button.dataset.matchDetail);if(!match)return;document.querySelector('#match-dialog')?.remove();document.body.insertAdjacentHTML('beforeend',matchPopup(match));const d=document.querySelector('#match-dialog');d.showModal();d.querySelector('[data-popup-edit]')?.addEventListener('click',()=>{d.close();d.remove();editMatch(match)});d.addEventListener('close',()=>d.remove(),{once:true})}))}
 
 function bindPlayerDeleteButtons(){document.querySelectorAll('[data-delete-player]').forEach(button=>button.addEventListener('click',event=>{event.stopPropagation();deletePlayer(button.dataset.deletePlayer)}))}
@@ -288,8 +300,11 @@ function playerProfile(id) {
 
 function renderPlayerHistory(rows, season) {
   const data = rows.filter(row => season === 'all' || normalizeSeason(row.season) === normalizeSeason(season))
-  document.querySelector('#player-history').innerHTML = `<div class="table-wrap"><table><thead><tr><th>Szezon</th><th>Datum</th><th>Sorozat</th><th>Ellenfel</th><th>Allas</th><th>Eredmeny</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th>${canEdit() ? '<th></th>' : ''}</tr></thead><tbody>${data.map(row => `<tr><td>${esc(row.season)}</td><td>${esc(row.match_date || row.matchDate || '')}</td><td>${row.competition === 'League' ? 'Bajnoksag' : 'Kupa'}</td><td>${esc(row.opponent)}</td><td>${esc(row.score || '')}</td><td><span class="result ${resultClass(row.result)}">${row.result === 'U' ? '?' : row.result}</span></td><td>${row.played ?? 1}</td><td>${row.goals ?? 0}</td><td>${row.yellow_cards ?? row.yellowCards ?? row.stat1 ?? 0}</td><td>${row.yellow_red_cards ?? row.yellowRedCards ?? row.stat2 ?? 0}</td><td>${row.red_cards ?? row.redCards ?? row.stat3 ?? 0}</td>${canEdit() ? `<td><button class="edit" data-player-match-edit="${esc(row.id)}">Szerkeszt</button></td>` : ''}</tr>`).join('') || '<tr><td colspan="12" class="empty">Nincs merkozes ehhez a szezonhoz.</td></tr>'}</tbody></table></div>`
-  if (canEdit()) document.querySelectorAll('[data-player-match-edit]').forEach(button => button.addEventListener('click', () => editPlayerMatch(rows.find(row => String(row.id) === button.dataset.playerMatchEdit))))
+  document.querySelector('#player-history').innerHTML = `<div class="table-wrap"><table><thead><tr><th>Szezon</th><th>Datum</th><th>Sorozat</th><th>Ellenfel</th><th>Allas</th><th>Eredmeny</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th>${canEdit() ? '<th></th>' : ''}</tr></thead><tbody>${data.map(row => `<tr><td>${esc(row.season)}</td><td>${esc(row.match_date || row.matchDate || '')}</td><td>${row.competition === 'League' ? 'Bajnoksag' : 'Kupa'}</td><td>${esc(row.opponent)}</td><td>${esc(row.score || '')}</td><td><span class="result ${resultClass(row.result)}">${row.result === 'U' ? '?' : row.result}</span></td><td>${row.played ?? 1}</td><td>${row.goals ?? 0}</td><td>${row.yellow_cards ?? row.yellowCards ?? row.stat1 ?? 0}</td><td>${row.yellow_red_cards ?? row.yellowRedCards ?? row.stat2 ?? 0}</td><td>${row.red_cards ?? row.redCards ?? row.stat3 ?? 0}</td>${canEdit() ? `<td><button class="edit" data-player-match-edit="${esc(row.id)}">Szerkeszt</button><button class="delete-match" data-player-match-delete="${esc(row.id)}">Torol</button></td>` : ''}</tr>`).join('') || '<tr><td colspan="12" class="empty">Nincs merkozes ehhez a szezonhoz.</td></tr>'}</tbody></table></div>`
+  if (canEdit()) {
+    document.querySelectorAll('[data-player-match-edit]').forEach(button => button.addEventListener('click', () => editPlayerMatch(rows.find(row => String(row.id) === button.dataset.playerMatchEdit))))
+    document.querySelectorAll('[data-player-match-delete]').forEach(button => button.addEventListener('click', () => deletePlayerMatch(rows.find(row => String(row.id) === button.dataset.playerMatchDelete))))
+  }
 }
 
 function bindMatchesPage() {
