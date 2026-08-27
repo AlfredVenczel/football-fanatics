@@ -252,7 +252,7 @@ function teamRows(season) {
 }
 function teamSummaryTable(season) {
   const rows = teamRows(season)
-  return `<div class="table-wrap"><table class="team-summary-table"><thead><tr><th>Csapat</th><th>Meccs</th><th>Nyert</th><th>Döntetlen</th><th>Vesztett</th><th>RG</th><th>KG</th><th>GA</th></tr></thead><tbody>${rows.map(row=>`<tr><td><button class="team-link" data-team-detail="${esc(row.team)}">${esc(row.team)}</button></td><td>${row.played}</td><td>${row.w}</td><td>${row.d}</td><td>${row.l}</td><td>${row.gf}</td><td>${row.ga}</td><td>${row.gd > 0 ? '+' : ''}${row.gd}</td></tr>`).join('') || '<tr><td colspan="8" class="empty">Nincs csapat ehhez a szezonhoz.</td></tr>'}</tbody></table></div>`
+  return `<div class="table-wrap"><table class="team-summary-table" data-all-seasons="true"><thead><tr><th>Csapat</th><th>Meccs</th><th>Nyert</th><th>Döntetlen</th><th>Vesztett</th><th>RG</th><th>KG</th><th>GA</th></tr></thead><tbody>${rows.map(row=>`<tr><td><button class="team-link" data-team-detail="${esc(row.team)}">${esc(row.team)}</button></td><td>${row.played}</td><td>${row.w}</td><td>${row.d}</td><td>${row.l}</td><td>${row.gf}</td><td>${row.ga}</td><td>${row.gd > 0 ? '+' : ''}${row.gd}</td></tr>`).join('') || '<tr><td colspan="8" class="empty">Nincs csapat ehhez a szezonhoz.</td></tr>'}</tbody></table></div>`
 }
 function teamDetail(team, season) {
   const row = teamRows(season).find(item => item.team === team)
@@ -260,9 +260,8 @@ function teamDetail(team, season) {
   return `<section class="team-detail"><div class="section-head"><div><span class="eyebrow">Csapat adatlap</span><h2>${esc(row.team)}</h2><p class="muted">${row.played} merkozes, ${row.w} gyozelem, ${row.d} dontetlen, ${row.l} vereseg</p></div><div class="team-detail-actions"><span class="team-detail-record">${row.gf}-${row.ga} · ${row.gd > 0 ? '+' : ''}${row.gd} GA</span>${canEdit()?`<button class="edit" data-team-edit="${esc(row.team)}">Csapat szerkesztese</button><button class="primary" data-team-add-match="${esc(row.team)}">Merkozes hozzaadasa</button>`:''}</div></div><div class="table-wrap"><table class="team-match-table"><thead><tr><th>Szezon</th><th>Datum</th><th>Ora</th><th>Hazai</th><th>Idegen</th><th>Eredmeny</th><th>Gol szerzo</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>${row.matches.sort((a,b)=>String(b.match_date||b.date||'').localeCompare(String(a.match_date||a.date||''))).map(match=>{const home=matchHome(match)||'Football Fanatics';const away=matchAway(match)||match.opponent||'Football Fanatics'; return `<tr><td>${esc(seasonLabel(matchSeason(match)))}</td><td>${esc(displayDate(match.match_date||match.date||match.matchDate))}</td><td>${esc(displayTime(match))}</td><td class="${isOurTeam(home)?'our-team':''}">${esc(home)}</td><td class="${isOurTeam(away)?'our-team':''}">${esc(away)}</td><td><span class="result ${resultClass(matchResult(match))}">${esc(match.score || matchResult(match))}</span></td><td class="scorers-cell">${esc(matchScorers(match) || '-')}</td>${canEdit()?`<td><button class="edit" data-team-match-edit="${esc(match.id)}">Szerkeszt</button><button class="delete-match" data-team-match-delete="${esc(match.id)}">Torol</button></td>`:''}</tr>`}).join('')}</tbody></table></div></section>`
 }
 function teamsPage() {
-  const names = seasonNames()
-  const selected = selectedTeamSeason && names.includes(selectedTeamSeason) ? selectedTeamSeason : (names[0] || 'all')
-  return `<section class="hero"><div><h2>Csapatok</h2><p class="muted">Minden ellenfelunk, szezononkent osszesitve. Kattints egy csapatra a reszletes merkozesekhez.</p></div>${canEdit()?'<div class="profile-actions"><button class="secondary" id="add-team-season">Uj szezon</button><button class="primary" id="add-team">Uj csapat</button></div>':''}</section><section class="panel"><div class="section-head"><div><h2>Merkozes rekord</h2><p class="muted">Nyert, dontetlen, vesztett, rugott es kapott golok</p></div><label class="season-filter"><span>Szezon</span><select id="teams-season"><option value="all">Minden szezon</option>${names.map(name=>`<option value="${esc(name)}" ${name===selected?'selected':''}>${esc(seasonLabel(name))}</option>`).join('')}</select></label></div><div id="team-summary">${teamSummaryTable(selected)}</div><div id="team-detail">${selectedTeam ? teamDetail(selectedTeam, selected) : ''}</div></section>`
+  const selected = 'all'
+  return `<section class="hero"><div><h2>Csapatok</h2><p class="muted">Minden ellenfelunk, minden szezonbol osszesitve. Kattints egy csapatra a reszletes merkozesekhez.</p></div>${canEdit()?'<div class="profile-actions"><button class="secondary" id="add-team-season">Uj szezon</button><button class="primary" id="add-team">Uj csapat</button></div>':''}</section><section class="panel"><div class="section-head"><div><h2>Merkozes rekord</h2><p class="muted">Minden szezon egyutt: Nyert, dontetlen, vesztett, RG, KG es GA</p></div></div><div id="team-summary">${teamSummaryTable(selected)}</div><div id="team-detail">${selectedTeam ? teamDetail(selectedTeam, selected) : ''}</div></section>`
 }
 
 function playerProfile(id) {
@@ -303,8 +302,8 @@ function bindMatchesPage() {
   render(select?.value || 'all')
 }
 function bindTeamsPage() {
-  const select = document.querySelector('#teams-season')
-  const render = season => {
+  const season = 'all'
+  const render = () => {
     document.querySelector('#team-summary').innerHTML = teamSummaryTable(season)
     document.querySelector('#team-detail').innerHTML = selectedTeam ? teamDetail(selectedTeam, season) : ''
     document.querySelectorAll('[data-team-detail]').forEach(button => button.addEventListener('click', () => {
@@ -315,10 +314,9 @@ function bindTeamsPage() {
     }))
     bindTeamDetailActions(season)
   }
-  select?.addEventListener('change', event => { selectedTeam = null; selectedTeamSeason = event.target.value === 'all' ? null : event.target.value; render(event.target.value) })
   document.querySelector('#add-team-season')?.addEventListener('click', addTeamSeason)
   document.querySelector('#add-team')?.addEventListener('click', addTeam)
-  render(select?.value || 'all')
+  render()
 }
 function bindTeamDetailActions(season) {
   document.querySelector('[data-team-add-match]')?.addEventListener('click', () => addTeamMatch(document.querySelector('[data-team-add-match]').dataset.teamAddMatch, season))
