@@ -357,7 +357,7 @@ function showPage(page) {
   } else {
     content.innerHTML = matchesPage()
     bindMatchesPage()
-    if (canEdit()) document.querySelector('#add-match')?.addEventListener('click', () => editMatch())
+    if (canEdit()) document.querySelector('#add-match')?.addEventListener('click', () => editMatch({ season: document.querySelector('#matches-season')?.value || '' }))
   }
 }
 
