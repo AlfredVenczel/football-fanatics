@@ -457,7 +457,15 @@ function showPage(page) {
 
 function bindTeamStatsEditors(season) {
   if (!canEdit()) return
-  document.querySelectorAll('[data-team-stats-edit]').forEach(button => button.addEventListener('click', () => editTeamStats(button.dataset.teamStatsEdit, button.dataset.teamStatsSeason || season)))
+  const table = document.querySelector('#team-table')
+  if (!table) return
+  table.onclick = event => {
+    const button = event.target.closest('[data-team-stats-edit]')
+    if (!button) return
+    event.preventDefault()
+    event.stopPropagation()
+    editTeamStats(button.dataset.teamStatsEdit, button.dataset.teamStatsSeason || season)
+  }
 }
 
 function bindSeasonRecord() {
@@ -497,7 +505,7 @@ async function editTeamStats(team, season) {
     const request = current.id ? supabase.from('teams').update(payload).eq('id', current.id) : supabase.from('teams').upsert(payload, { onConflict:'name,season' })
     const { error } = await request
     if (error) return alert(error.message)
-    element.close(); element.remove(); await load(); showPage('dashboard')
+    element.close(); element.remove(); await load(); showPage('dashboard'); const seasonSelect = document.querySelector('#team-season'); if (seasonSelect) seasonSelect.value = normalized
   })
 }
 
