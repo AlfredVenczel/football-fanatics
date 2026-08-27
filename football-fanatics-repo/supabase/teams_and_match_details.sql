@@ -11,12 +11,14 @@ create table if not exists public.teams (
   name text not null,
   season text not null,
   notes text default '',
+  stage text not null default 'main',
   played integer,
   wins integer,
   draws integer,
   losses integer,
   goals_for integer,
   goals_against integer,
+  points integer,
   created_at timestamptz not null default now(),
   unique (name, season)
 );
@@ -26,12 +28,15 @@ grant select, insert, update, delete on public.teams to authenticated;
 grant usage, select on sequence public.teams_id_seq to authenticated;
 
 alter table public.teams add column if not exists notes text default '';
+alter table public.teams add column if not exists stage text not null default 'main';
+update public.teams set stage = 'main' where stage is null;
 alter table public.teams add column if not exists played integer;
 alter table public.teams add column if not exists wins integer;
 alter table public.teams add column if not exists draws integer;
 alter table public.teams add column if not exists losses integer;
 alter table public.teams add column if not exists goals_for integer;
 alter table public.teams add column if not exists goals_against integer;
+alter table public.teams add column if not exists points integer;
 
 alter table public.teams enable row level security;
 drop policy if exists "public can read teams" on public.teams;
