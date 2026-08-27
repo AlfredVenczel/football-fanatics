@@ -120,24 +120,27 @@ function leagueMatchesForSeason(season) {
   const normalized = normalizeSeason(season)
   return matches.filter(match => matchSeason(match) === normalized && rowCompetition(match) === 'League')
 }
-function manualTeamStats(team, season) {
+function manualTeamStats(team, season, stage = 'main') {
   const normalized = normalizeSeason(season)
-  const row = teams.find(item => normalizeSeason(item.season) === normalized && String(item.name).trim() === String(team).trim() && [item.played, item.wins, item.draws, item.losses, item.goals_for, item.goals_against].some(value => value !== null && value !== undefined))
+  const row = teams.find(item => normalizeSeason(item.season) === normalized && String(item.name).trim() === String(team).trim() && (item.stage || 'main') === stage)
   if (!row) return null
-  return { played:num(row.played), w:num(row.wins), d:num(row.draws), l:num(row.losses), gf:num(row.goals_for), ga:num(row.goals_against), gd:num(row.goals_for)-num(row.goals_against), points:num(row.wins)*3+num(row.draws) }
+  const hasValues = [row.played, row.wins, row.draws, row.losses, row.goals_for, row.goals_against, row.points].some(value => value !== null && value !== undefined)
+  if (stage !== 'playout' && !hasValues) return null
+  const points = row.points === null || row.points === undefined ? num(row.wins)*3+num(row.draws) : num(row.points)
+  return { played:num(row.played), w:num(row.wins), d:num(row.draws), l:num(row.losses), gf:num(row.goals_for), ga:num(row.goals_against), gd:num(row.goals_for)-num(row.goals_against), points }
 }
-function dynamicTableRows(season) {
+function dynamicTableRows(season, stage = 'main') {
   const normalized = normalizeSeason(season)
-  const data = leagueMatchesForSeason(season)
+  const data = stage === 'playout' ? [] : leagueMatchesForSeason(season)
   const grouped = new Map()
   const ensure = team => {
     const name = String(team || '').trim()
-    if (!name || !grouped.has(name)) grouped.set(name, { team:name, played:0, w:0, d:0, l:0, gf:0, ga:0, gd:0, points:0, manual:false })
+    if (!name || !grouped.has(name)) grouped.set(name, { team:name, played:0, w:0, d:0, l:0, gf:0, ga:0, gd:0, points:0, manual:false, stage })
     return grouped.get(name)
   }
-  teams.filter(team => normalizeSeason(team.season) === normalized).forEach(team => {
+  teams.filter(team => normalizeSeason(team.season) === normalized && (team.stage || 'main') === stage).forEach(team => {
     const row = ensure(team.name)
-    const manual = manualTeamStats(team.name, season)
+    const manual = manualTeamStats(team.name, season, stage)
     if (manual) Object.assign(row, manual, { manual:true })
   })
   data.forEach(match => {
@@ -165,13 +168,18 @@ function dynamicTableRows(season) {
   const rows = [...grouped.values()].map(row => ({ ...row, gd: row.manual ? row.gd : row.gf - row.ga })).filter(row => row.played || row.manual || data.length)
   return rows.sort((a,b) => b.points-a.points || b.gd-a.gd || b.gf-a.gf || a.team.localeCompare(b.team)).map((row,index) => ({ ...row, rank:index+1 }))
 }
-function tableRows(season) {
-  return dynamicTableRows(season).length ? dynamicTableRows(season) : (standings[normalizeSeason(season)] || [])
+function tableRows(season, stage = 'main') {
+  const dynamic = dynamicTableRows(season, stage)
+  return dynamic.length ? dynamic : (stage === 'main' ? (standings[normalizeSeason(season)] || []) : [])
 }
-function teamTable(season) {
-  const rows = tableRows(season)
-  if (!rows.length) return `<div class="empty"><strong>Nincs tabella ehhez a szezonhoz</strong>Adj hozza csapatokat kesobb.</div>`
-  return `<div class="table-wrap"><table><thead><tr><th>#</th><th>Csapat</th><th>J</th><th>Gy</th><th>D</th><th>V</th><th>RG</th><th>KG</th><th>GA</th><th>Pont</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>${rows.map(row => `<tr class="${row.team === 'Football Fanatics' ? 'highlight' : ''}"><td>${row.rank}</td><td><strong>${esc(row.team)}</strong>${row.manual?'<small class="manual-badge">manual</small>':''}</td><td>${row.played}</td><td>${row.w}</td><td>${row.d}</td><td>${row.l}</td><td>${row.gf}</td><td>${row.ga}</td><td>${row.gd > 0 ? '+' : ''}${row.gd}</td><td><strong>${row.points}</strong></td>${canEdit()?`<td><button class="edit" data-team-stats-edit="${esc(row.team)}" data-team-stats-season="${esc(season)}">Tabella adat</button></td>`:''}</tr>`).join('')}</tbody></table></div>`
+function teamTable(season, stage = 'main') {
+  const rows = tableRows(season, stage)
+  if (!rows.length) return `<div class="empty"><strong>Nincs ${stage === 'playout' ? 'Play out ' : ''}tabella ehhez a szezonhoz</strong>${stage === 'playout' ? 'Adj hozza Play out csapatokat felul.' : 'Adj hozza csapatokat kesobb.'}</div>`
+  return `<div class="table-wrap"><table><thead><tr><th>#</th><th>Csapat</th><th>J</th><th>Gy</th><th>D</th><th>V</th><th>RG</th><th>KG</th><th>GA</th><th>Pont</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>${rows.map(row => `<tr class="${row.team === 'Football Fanatics' ? 'highlight' : ''}"><td>${row.rank}</td><td><strong>${esc(row.team)}</strong>${row.manual?'<small class="manual-badge">manual</small>':''}</td><td>${row.played}</td><td>${row.w}</td><td>${row.d}</td><td>${row.l}</td><td>${row.gf}</td><td>${row.ga}</td><td>${row.gd > 0 ? '+' : ''}${row.gd}</td><td><strong>${row.points}</strong></td>${canEdit()?`<td><button class="edit" data-team-stats-edit="${esc(row.team)}" data-team-stats-season="${esc(season)}" data-team-stats-stage="${esc(stage)}">Tabella adat</button></td>`:''}</tr>`).join('')}</tbody></table></div>`
+}
+function playOutTable(season) {
+  if (normalizeSeason(season) !== '2024-2025') return ''
+  return `<section class="playout-section"><div class="section-head"><div><span class="eyebrow">2024/2025</span><h2>Play out</h2><p class="muted">A 7 csapatos Play out kulon tablazata. Az adatokat manualisan adhatod meg.</p></div>${canEdit()?'<button class="secondary" id="add-playout-team">Play out csapat hozzaadasa</button>':''}</div><div id="playout-table">${teamTable(season, 'playout')}</div></section>`
 }
 function nextScheduledMatch(season) {
   const data = leagueMatchesForSeason(season).filter(match => matchResult(match) === 'U' || scoreParts(match)[0] === null).sort((a,b) => {
@@ -235,7 +243,7 @@ function seasonPlayerRows(season) {
 function dashboard() {
   const names = seasonNames()
   const selected = names.includes('2025/2026') ? '2025/2026' : names[0]
-  return `<section class="hero"><div><h2>Szezon attekintese</h2><p class="muted">${matches.length} shared matches. ${canEdit() ? 'Editor mode is on.' : 'Your access is read-only.'}</p></div><div class="metric"><strong>${matches.length}</strong><span>recorded matches</span></div></section><section class="panel"><div class="section-head"><div><h2>Tabella</h2><p class="muted">Minden csapat, J / Gy / D / V, golok es pontok</p></div><div class="profile-actions">${canEdit() ? '<button class="primary" id="add-season">Uj szezon</button>' : ''}<select id="team-season">${names.map(name => `<option value="${esc(name)}" ${name === selected ? 'selected' : ''}>${esc(seasonLabel(name))}</option>`).join('')}</select></div></div><div id="next-match">${nextScheduledMatch(selected)}</div><div id="team-table">${teamTable(selected)}</div><div class="season-record"><div class="section-head"><div><h2>Jatekos merkozesrekord</h2><p class="muted">A kiválasztott szezon játékosainak összesített adatai, játékosonként egy sorban</p></div><span class="role" id="season-record-count"></span></div><div id="season-player-record">${seasonPlayerRows(selected)}</div></div></section>`
+  return `<section class="hero"><div><h2>Szezon attekintese</h2><p class="muted">${matches.length} shared matches. ${canEdit() ? 'Editor mode is on.' : 'Your access is read-only.'}</p></div><div class="metric"><strong>${matches.length}</strong><span>recorded matches</span></div></section><section class="panel"><div class="section-head"><div><h2>Tabella</h2><p class="muted">Minden csapat, J / Gy / D / V, golok es pontok</p></div><div class="profile-actions">${canEdit() ? '<button class="primary" id="add-season">Uj szezon</button>' : ''}<select id="team-season">${names.map(name => `<option value="${esc(name)}" ${name === selected ? 'selected' : ''}>${esc(seasonLabel(name))}</option>`).join('')}</select></div></div><div id="next-match">${nextScheduledMatch(selected)}</div><div id="playout-table-wrap">${playOutTable(selected)}</div><div id="team-table">${teamTable(selected)}</div><div class="season-record"><div class="section-head"><div><h2>Jatekos merkozesrekord</h2><p class="muted">A kiválasztott szezon játékosainak összesített adatai, játékosonként egy sorban</p></div><span class="role" id="season-record-count"></span></div><div id="season-player-record">${seasonPlayerRows(selected)}</div></div></section>`
 }
 
 function playersPage() {
@@ -429,12 +437,15 @@ function showPage(page) {
     bindSeasonRecord()
     document.querySelector('#team-season').addEventListener('change', event => {
       document.querySelector('#next-match').innerHTML = nextScheduledMatch(event.target.value)
+      document.querySelector('#playout-table-wrap').innerHTML = playOutTable(event.target.value)
       document.querySelector('#team-table').innerHTML = teamTable(event.target.value)
       bindTeamStatsEditors(event.target.value)
+      bindPlayOutTeamAdder(event.target.value)
       document.querySelector('#season-player-record').innerHTML = seasonPlayerRows(event.target.value)
       bindSeasonRecord()
     })
     bindTeamStatsEditors(selected)
+    bindPlayOutTeamAdder(selected)
     if (canEdit()) document.querySelector('#add-season').addEventListener('click', addGlobalSeason)
   } else if (page === 'players') {
     content.innerHTML = playersPage()
@@ -457,15 +468,19 @@ function showPage(page) {
 
 function bindTeamStatsEditors(season) {
   if (!canEdit()) return
-  const table = document.querySelector('#team-table')
-  if (!table) return
-  table.onclick = event => {
-    const button = event.target.closest('[data-team-stats-edit]')
-    if (!button) return
-    event.preventDefault()
-    event.stopPropagation()
-    editTeamStats(button.dataset.teamStatsEdit, button.dataset.teamStatsSeason || season)
-  }
+  document.querySelectorAll('#team-table, #playout-table').forEach(table => {
+    table.onclick = event => {
+      const button = event.target.closest('[data-team-stats-edit]')
+      if (!button) return
+      event.preventDefault()
+      event.stopPropagation()
+      editTeamStats(button.dataset.teamStatsEdit, button.dataset.teamStatsSeason || season, button.dataset.teamStatsStage || 'main')
+    }
+  })
+}
+function bindPlayOutTeamAdder(season) {
+  if (!canEdit() || normalizeSeason(season) !== '2024-2025') return
+  document.querySelector('#add-playout-team')?.addEventListener('click', () => addTeam('playout'))
 }
 
 function bindSeasonRecord() {
@@ -492,20 +507,20 @@ function dialog(title, body, save) {
 }
 
 async function addTeamSeason() { dialog('Uj szezon', '<input id="season" placeholder="Pelda: 2026/2027" required><input id="note" placeholder="Megjegyzes">', async element => { const name = normalizeSeason(element.querySelector('#season').value.trim()); if (!name) return; const { error } = await supabase.from('seasons').upsert({ season:name, notes:element.querySelector('#note').value }, { onConflict:'season' }); if (error) return alert(error.message); element.close(); element.remove(); await load(); selectedTeam = null; selectedTeamSeason = name; showPage('teams') }) }
-async function addTeam() { const names = seasonNames(); dialog('Uj csapat', `<input id="name" placeholder="Csapat neve" required><label>Szezon<input id="season" list="season-options" value="${esc(names[0] || '')}" placeholder="Pelda: 2026/2027" required><datalist id="season-options">${names.map(name=>`<option value="${esc(name)}">`).join('')}</datalist></label><input id="team-note" placeholder="Megjegyzes a nev mellett, pl. formerly Kreutzpointner">`, async element => { const name = element.querySelector('#name').value.trim(); const season = normalizeSeason(element.querySelector('#season').value.trim()); if (!name || !season) return; const note = element.querySelector('#team-note').value.trim(); const { error } = await supabase.from('teams').insert({ name, season, notes:note }); if (error) return alert(error.message); element.close(); element.remove(); await load(); selectedTeam = name; selectedTeamSeason = season; showPage('teams') }) }
+async function addTeam(stage = 'main') { const names = seasonNames(); const defaultSeason = stage === 'playout' ? '2024-2025' : (names[0] || ''); dialog(stage === 'playout' ? 'Uj Play out csapat' : 'Uj csapat', `<input id="name" placeholder="Csapat neve" required><label>Szezon<input id="season" list="season-options" value="${esc(defaultSeason)}" placeholder="Pelda: 2026/2027" required><datalist id="season-options">${names.map(name=>`<option value="${esc(name)}">`).join('')}</datalist></label><input id="team-note" placeholder="Megjegyzes a nev mellett, pl. formerly Kreutzpointner">`, async element => { const name = element.querySelector('#name').value.trim(); const season = normalizeSeason(element.querySelector('#season').value.trim()); if (!name || !season) return; const note = element.querySelector('#team-note').value.trim(); const { error } = await supabase.from('teams').insert({ name, season, stage, notes:note }); if (error) return alert(error.message); element.close(); element.remove(); await load(); selectedTeam = name; selectedTeamSeason = season; showPage('teams') }) }
 async function editTeam(team, season) { const currentNotes = teams.filter(row => row.name === team && (!season || season === 'all' || normalizeSeason(row.season) === normalizeSeason(season))).map(row => row.notes).find(Boolean) || ''; dialog('Csapat szerkesztese', `<input id="name" value="${esc(team)}" required><input id="team-note" value="${esc(currentNotes)}" placeholder="Megjegyzes a nev mellett, pl. formerly Kreutzpointner">`, async element => { const name = element.querySelector('#name').value.trim(); const note = element.querySelector('#team-note').value.trim(); const normalized = season === 'all' ? null : normalizeSeason(season); if (!name) return; const ids = teams.filter(row => row.name === team && (!normalized || normalizeSeason(row.season) === normalized)).map(row => row.id); if (ids.length) { const { error } = await supabase.from('teams').update({ name, notes:note }).in('id', ids); if (error) return alert(error.message) } const oldMatches = matches.filter(match => teamNameForMatch(match) === team && (!normalized || matchSeason(match) === normalized)); for (const match of oldMatches) { const payload = { opponent:name }; if (match.home_team && match.home_team === team) payload.home_team = name; if (match.away_team && match.away_team === team) payload.away_team = name; const { error } = await supabase.from('matches').update(payload).eq('id', match.id); if (error) return alert(error.message) } if (!ids.length) { const seasonsToCreate = [...new Set(oldMatches.map(matchSeason).filter(Boolean))]; if (normalized && !seasonsToCreate.includes(normalized)) seasonsToCreate.push(normalized); for (const teamSeason of seasonsToCreate) { const { error } = await supabase.from('teams').upsert({ name, season:teamSeason, notes:note }, { onConflict:'name,season' }); if (error) return alert(error.message) } } element.close(); element.remove(); await load(); selectedTeam = name; selectedTeamSeason = normalized; showPage('teams') }) }
 async function addTeamMatch(team, season) { await editMatch({ opponent:team, season:season === 'all' ? (seasonNames()[0] || '') : season, home_team:'Football Fanatics', away_team:team, competition:'League', result:'U', returnPage:'teams' }) }
 
-async function editTeamStats(team, season) {
+async function editTeamStats(team, season, stage = 'main') {
   const normalized = normalizeSeason(season)
-  const current = teams.find(row => String(row.name).trim() === String(team).trim() && normalizeSeason(row.season) === normalized) || {}
-  const source = manualTeamStats(team, season) || { played:0, w:0, d:0, l:0, gf:0, ga:0 }
-  dialog(`Tabella adat: ${team}`, `<p class="muted">Szezon: ${esc(seasonLabel(season))}. Ezek az adatok felulirjak a merkozesekbol szamolt sort.</p><label>Jatszott<input id="stats-played" type="number" min="0" value="${source.played}"></label><label>Nyert<input id="stats-wins" type="number" min="0" value="${source.w}"></label><label>Dontetlen<input id="stats-draws" type="number" min="0" value="${source.d}"></label><label>Vesztett<input id="stats-losses" type="number" min="0" value="${source.l}"></label><label>RG<input id="stats-gf" type="number" min="0" value="${source.gf}"></label><label>KG<input id="stats-ga" type="number" min="0" value="${source.ga}"></label>`, async element => {
-    const payload = { name:team, season:normalized, notes:current.notes || '', played:+element.querySelector('#stats-played').value || 0, wins:+element.querySelector('#stats-wins').value || 0, draws:+element.querySelector('#stats-draws').value || 0, losses:+element.querySelector('#stats-losses').value || 0, goals_for:+element.querySelector('#stats-gf').value || 0, goals_against:+element.querySelector('#stats-ga').value || 0 }
+  const current = teams.find(row => String(row.name).trim() === String(team).trim() && normalizeSeason(row.season) === normalized && (row.stage || 'main') === stage) || {}
+  const source = manualTeamStats(team, season, stage) || { played:0, w:0, d:0, l:0, gf:0, ga:0 }
+  dialog(`Tabella adat: ${team}`, `<p class="muted">Szezon: ${esc(seasonLabel(season))}. Ezek az adatok felulirjak a merkozesekbol szamolt sort.</p><label>Jatszott<input id="stats-played" type="number" min="0" value="${source.played}"></label><label>Nyert<input id="stats-wins" type="number" min="0" value="${source.w}"></label><label>Dontetlen<input id="stats-draws" type="number" min="0" value="${source.d}"></label><label>Vesztett<input id="stats-losses" type="number" min="0" value="${source.l}"></label><label>RG<input id="stats-gf" type="number" min="0" value="${source.gf}"></label><label>KG<input id="stats-ga" type="number" min="0" value="${source.ga}"></label><label>Pont<input id="stats-points" type="number" min="0" value="${source.points ?? source.w * 3 + source.d}"></label>`, async element => {
+    const payload = { name:team, season:normalized, stage, notes:current.notes || '', played:+element.querySelector('#stats-played').value || 0, wins:+element.querySelector('#stats-wins').value || 0, draws:+element.querySelector('#stats-draws').value || 0, losses:+element.querySelector('#stats-losses').value || 0, goals_for:+element.querySelector('#stats-gf').value || 0, goals_against:+element.querySelector('#stats-ga').value || 0, points:+element.querySelector('#stats-points').value || 0 }
     const request = current.id ? supabase.from('teams').update(payload).eq('id', current.id) : supabase.from('teams').upsert(payload, { onConflict:'name,season' })
     const { error } = await request
     if (error) return alert(error.message)
-    element.close(); element.remove(); await load(); showPage('dashboard'); const seasonSelect = document.querySelector('#team-season'); if (seasonSelect) seasonSelect.value = normalized
+    element.close(); element.remove(); await load(); showPage('dashboard'); const seasonSelect = document.querySelector('#team-season'); if (seasonSelect) { seasonSelect.value = normalized; seasonSelect.dispatchEvent(new Event('change')) }
   })
 }
 
