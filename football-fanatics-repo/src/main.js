@@ -107,10 +107,62 @@ function seasonNames() {
   return [...new Set([...Object.keys(standings), ...seasons.map(row => row.season), ...playerSeasons.map(row => row.season), ...playerMatches.map(row => row.season), ...matches.map(matchSeason)].filter(Boolean).map(normalizeSeason))].sort().reverse()
 }
 
+function invertResult(result) { return result === 'W' ? 'L' : result === 'L' ? 'W' : result }
+function resultForTeam(match, team) {
+  const result = matchResult(match)
+  if (!['W','D','L'].includes(result)) return 'U'
+  const home = matchHome(match), away = matchAway(match)
+  if (String(team) === String(home)) return isOurTeam(home) ? result : invertResult(result)
+  if (String(team) === String(away)) return isOurTeam(away) ? result : invertResult(result)
+  return result
+}
+function leagueMatchesForSeason(season) {
+  const normalized = normalizeSeason(season)
+  return matches.filter(match => matchSeason(match) === normalized && rowCompetition(match) === 'League')
+}
+function dynamicTableRows(season) {
+  const data = leagueMatchesForSeason(season)
+  if (!data.length) return []
+  const grouped = new Map()
+  const ensure = team => {
+    const name = String(team || '').trim()
+    if (!name || !grouped.has(name)) grouped.set(name, { team:name, played:0, w:0, d:0, l:0, gf:0, ga:0, gd:0, points:0 })
+    return grouped.get(name)
+  }
+  teams.filter(team => normalizeSeason(team.season) === normalizeSeason(season)).forEach(team => ensure(team.name))
+  data.forEach(match => {
+    const home = matchHome(match), away = matchAway(match)
+    const homeRow = ensure(home), awayRow = ensure(away)
+    const result = matchResult(match)
+    const [first, second] = scoreParts(match)
+    if (!['W','D','L'].includes(result)) return
+    if (first !== null && second !== null) { homeRow.gf += first; homeRow.ga += second; awayRow.gf += second; awayRow.ga += first }
+    homeRow.played += 1; awayRow.played += 1
+    const homeResult = resultForTeam(match, home), awayResult = resultForTeam(match, away)
+    homeRow[homeResult.toLowerCase()] += 1; awayRow[awayResult.toLowerCase()] += 1
+    homeRow.points += homeResult === 'W' ? 3 : homeResult === 'D' ? 1 : 0
+    awayRow.points += awayResult === 'W' ? 3 : awayResult === 'D' ? 1 : 0
+  })
+  return [...grouped.values()].map(row => ({ ...row, gd: row.gf - row.ga })).sort((a,b) => b.points-a.points || b.gd-a.gd || b.gf-a.gf || a.team.localeCompare(b.team)).map((row,index) => ({ ...row, rank:index+1 }))
+}
+function tableRows(season) {
+  return dynamicTableRows(season).length ? dynamicTableRows(season) : (standings[normalizeSeason(season)] || [])
+}
 function teamTable(season) {
-  const rows = standings[normalizeSeason(season)] || []
-  if (!rows.length) return `<div class="empty"><strong>Nincs tabella ehhez a szezonhoz</strong>Adj hozza csapatokat kesobb.</div>`
+  const rows = tableRows(season)
+  if (!rows.length) return `<div class="empty"><strong>Nincs tabella ehhez a szezonhoz</strong>Adj hozza merkozeseket kesobb.</div>`
   return `<div class="table-wrap"><table><thead><tr><th>#</th><th>Csapat</th><th>J</th><th>Gy</th><th>D</th><th>V</th><th>RG</th><th>KG</th><th>GA</th><th>Pont</th></tr></thead><tbody>${rows.map(row => `<tr class="${row.team === 'Football Fanatics' ? 'highlight' : ''}"><td>${row.rank}</td><td><strong>${esc(row.team)}</strong></td><td>${row.played}</td><td>${row.w}</td><td>${row.d}</td><td>${row.l}</td><td>${row.gf}</td><td>${row.ga}</td><td>${row.gd > 0 ? '+' : ''}${row.gd}</td><td><strong>${row.points}</strong></td></tr>`).join('')}</tbody></table></div>`
+}
+function nextScheduledMatch(season) {
+  const data = leagueMatchesForSeason(season).filter(match => matchResult(match) === 'U' || scoreParts(match)[0] === null).sort((a,b) => {
+    const ad = `${a.match_date || a.date || a.matchDate || '9999-12-31'} ${displayTime(a)}`
+    const bd = `${b.match_date || b.date || b.matchDate || '9999-12-31'} ${displayTime(b)}`
+    return ad.localeCompare(bd)
+  })
+  const match = data[0]
+  if (!match) return `<div class="next-match empty"><strong>Nincs kovetkezo merkozes</strong>Ehhez a szezonhoz nincs rogzitett jovöbeni merkozes.</div>`
+  const home = matchHome(match) || 'Football Fanatics', away = matchAway(match) || match.opponent || 'Football Fanatics'
+  return `<div class="next-match"><div><span class="eyebrow">Kovetkezo merkozes</span><h3>${esc(home)} <span>vs</span> ${esc(away)}</h3><p class="muted">${esc(displayDate(match.match_date || match.date || match.matchDate))}${displayTime(match) ? ` · ${esc(displayTime(match))}` : ''} · ${match.competition === 'Cup' ? 'Kupa' : 'Bajnoksag'}</p></div><span class="next-match-badge">${esc(match.result === 'U' ? 'TERVEZETT' : 'NINCS EREDMENY')}</span></div>`
 }
 
 function playerMatchSeason(row) { return normalizeSeason(row.season) }
@@ -163,7 +215,7 @@ function seasonPlayerRows(season) {
 function dashboard() {
   const names = seasonNames()
   const selected = names.includes('2025/2026') ? '2025/2026' : names[0]
-  return `<section class="hero"><div><h2>Szezon attekintese</h2><p class="muted">${matches.length} shared matches. ${canEdit() ? 'Editor mode is on.' : 'Your access is read-only.'}</p></div><div class="metric"><strong>${matches.length}</strong><span>recorded matches</span></div></section><section class="panel"><div class="section-head"><div><h2>Tabella</h2><p class="muted">Minden csapat, J / Gy / D / V, golok es pontok</p></div><div class="profile-actions">${canEdit() ? '<button class="primary" id="add-season">Uj szezon</button>' : ''}<select id="team-season">${names.map(name => `<option value="${esc(name)}" ${name === selected ? 'selected' : ''}>${esc(seasonLabel(name))}</option>`).join('')}</select></div></div><div id="team-table">${teamTable(selected)}</div><div class="season-record"><div class="section-head"><div><h2>Jatekos merkozesrekord</h2><p class="muted">A kiválasztott szezon játékosainak összesített adatai, játékosonként egy sorban</p></div><span class="role" id="season-record-count"></span></div><div id="season-player-record">${seasonPlayerRows(selected)}</div></div></section>`
+  return `<section class="hero"><div><h2>Szezon attekintese</h2><p class="muted">${matches.length} shared matches. ${canEdit() ? 'Editor mode is on.' : 'Your access is read-only.'}</p></div><div class="metric"><strong>${matches.length}</strong><span>recorded matches</span></div></section><section class="panel"><div class="section-head"><div><h2>Tabella</h2><p class="muted">Minden csapat, J / Gy / D / V, golok es pontok</p></div><div class="profile-actions">${canEdit() ? '<button class="primary" id="add-season">Uj szezon</button>' : ''}<select id="team-season">${names.map(name => `<option value="${esc(name)}" ${name === selected ? 'selected' : ''}>${esc(seasonLabel(name))}</option>`).join('')}</select></div></div><div id="next-match">${nextScheduledMatch(selected)}</div><div id="team-table">${teamTable(selected)}</div><div class="season-record"><div class="section-head"><div><h2>Jatekos merkozesrekord</h2><p class="muted">A kiválasztott szezon játékosainak összesített adatai, játékosonként egy sorban</p></div><span class="role" id="season-record-count"></span></div><div id="season-player-record">${seasonPlayerRows(selected)}</div></div></section>`
 }
 
 function playersPage() {
@@ -356,6 +408,7 @@ function showPage(page) {
     content.innerHTML = dashboard()
     bindSeasonRecord()
     document.querySelector('#team-season').addEventListener('change', event => {
+      document.querySelector('#next-match').innerHTML = nextScheduledMatch(event.target.value)
       document.querySelector('#team-table').innerHTML = teamTable(event.target.value)
       document.querySelector('#season-player-record').innerHTML = seasonPlayerRows(event.target.value)
       bindSeasonRecord()
