@@ -280,7 +280,7 @@ function playersPage() {
   const names=seasonNames();
   return `<section class="panel"><div class="section-head"><div><h2>Jatekosok</h2><p class="muted">Valassz szezont, majd rendezd a jatekosokat statisztika szerint. Nincs osszesito sor.</p></div><div class="profile-actions"><select id="players-season"><option value="all" selected>Minden szezon</option>${names.map(name=>`<option value="${esc(name)}">${esc(seasonLabel(name))}</option>`).join('')}</select><select id="players-sort"><option value="apps">Legtobbet jatszott</option><option value="goals">Legtobb gol</option><option value="yellow">Legtobb sarga</option><option value="yellowRed">Legtobb sarga + piros</option><option value="red">Legtobb piros</option><option value="name">Nev szerint</option></select><span class="role" id="players-count">${players.length} jatekos</span>${canEdit()?'<button class="primary" id="add-player">Uj jatekos</button>':''}</div></div><div class="table-wrap"><table><thead><tr><th>Jatekos</th><th>Mez szam</th><th>Jatszott</th><th>Gol</th><th title="Yellow card">🟨</th><th title="One yellow and one red">🟨🟥</th><th title="Red card">🟥</th><th></th></tr></thead><tbody id="players-table-body"></tbody></table></div></section>`
 }
-function playerStatRows(season='all',sort='apps') {
+function playerStatRows(season='all',sort='apps',groupByLatestSeason=false) {
   const filtered=playerMatches.filter(row=>season==='all'||normalizeSeason(row.season)===normalizeSeason(season))
   const ids=new Set([...filtered.map(row=>playerMatchPlayerId(row)),...playerSeasons.filter(row=>season==='all'||normalizeSeason(row.season)===normalizeSeason(season)).map(row=>row.player_id)].filter(Boolean))
   const source=season==='all'?players:players.filter(player=>ids.has(player.id))
@@ -290,12 +290,12 @@ function playerStatRows(season='all',sort='apps') {
     return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:detail.reduce((a,row)=>a+num(row.yellow_cards??row.yellowCards??row.stat1??0),0),yellowRed:detail.reduce((a,row)=>a+num(row.yellow_red_cards??row.yellowRedCards??row.stat2??0),0),red:detail.reduce((a,row)=>a+num(row.red_cards??row.redCards??row.stat3??0),0),latestSeasonRank:latestPlayerSeasonRank(player.id)}
   })
   const statSort = (a,b) => sort==='name'?a.player.name.localeCompare(b.player.name):sort==='goals'?b.goals-a.goals||b.played-a.played:sort==='yellow'?b.yellow-a.yellow||b.played-a.played:sort==='yellowRed'?b.yellowRed-a.yellowRed||b.played-a.played:sort==='red'?b.red-a.red||b.played-b.played:b.played-a.played||b.goals-a.goals
-  rows.sort((a,b)=>season==='all' ? a.latestSeasonRank-b.latestSeasonRank || statSort(a,b) : statSort(a,b))
+  rows.sort((a,b)=>groupByLatestSeason && season==='all' ? a.latestSeasonRank-b.latestSeasonRank || statSort(a,b) : statSort(a,b))
   return rows
 }
 
-function bindPlayersTable(season='all',sort='apps') {
-  const rows=playerStatRows(season,sort),body=document.querySelector('#players-table-body')
+function bindPlayersTable(season='all',sort='apps',groupByLatestSeason=false) {
+  const rows=playerStatRows(season,sort,groupByLatestSeason),body=document.querySelector('#players-table-body')
   if(!body)return
   body.innerHTML=rows.map(x=>`<tr class="clickable" data-player="${esc(x.player.id)}"><td><strong class="player-link">${esc(x.player.name)}</strong></td><td>${x.player.jersey_number??x.player.jerseyNumber??''}</td><td>${x.played}</td><td>${x.goals}</td><td>${x.yellow}</td><td>${x.yellowRed}</td><td>${x.red}</td><td>${canEdit()?`<button class="edit-player" data-edit-player="${esc(x.player.id)}">Szerkeszt</button><button class="delete-player" data-delete-player="${esc(x.player.id)}">Torol</button>`:''}</td></tr>`).join('')||'<tr><td colspan="8" class="empty">Nincs jatekos ehhez a szezonhoz.</td></tr>'
   const count=document.querySelector('#players-count');if(count)count.textContent=`${rows.length} jatekos`
@@ -482,7 +482,7 @@ function showPage(page) {
     if (canEdit()) document.querySelector('#add-season').addEventListener('click', addGlobalSeason)
   } else if (page === 'players') {
     content.innerHTML = playersPage()
-    bindPlayersTable('all','apps')
+    bindPlayersTable('all','apps',true)
     document.querySelector('#players-season').addEventListener('change',event=>bindPlayersTable(event.target.value,document.querySelector('#players-sort').value))
     document.querySelector('#players-sort').addEventListener('change',event=>bindPlayersTable(document.querySelector('#players-season').value,event.target.value))
     if (canEdit()) {
