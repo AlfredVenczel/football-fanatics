@@ -204,11 +204,16 @@ function detailRowsForSeason(season) { return playerMatches.filter(row => season
 function playerIsInSeason(id, season) { return season === 'all' || playerMatches.some(row => playerMatchPlayerId(row) === id && normalizeSeason(row.season) === normalizeSeason(season)) || playerSeasons.some(row => row.player_id === id && normalizeSeason(row.season) === normalizeSeason(season)) }
 function playerStatsForSeason(player, season) {
   if (season === 'all') {
-    const leagueApps=num(player.league_apps ?? player.leagueApps)
-    const cupApps=num(player.cup_apps ?? player.cupApps)
-    const leagueGoals=num(player.league_goals ?? player.leagueGoals)
-    const cupGoals=num(player.cup_goals ?? player.cupGoals)
-    return {leagueApps,cupApps,leagueGoals,cupGoals,totalGoals:leagueGoals+cupGoals}
+    const hasManualTotals = ['league_apps','leagueApps','cup_apps','cupApps','league_goals','leagueGoals','cup_goals','cupGoals'].some(key => player[key] !== null && player[key] !== undefined)
+    if (hasManualTotals) {
+      const leagueApps=num(player.league_apps ?? player.leagueApps)
+      const cupApps=num(player.cup_apps ?? player.cupApps)
+      const leagueGoals=num(player.league_goals ?? player.leagueGoals)
+      const cupGoals=num(player.cup_goals ?? player.cupGoals)
+      return {leagueApps,cupApps,leagueGoals,cupGoals,totalGoals:leagueGoals+cupGoals}
+    }
+    const rows = playerMatches.filter(row => playerMatchPlayerId(row) === player.id)
+    return rows.reduce((a,row) => { const c=rowCompetition(row), played=num(row.played ?? 1), goals=num(row.goals); if (c === 'Cup') { a.cupApps += played; a.cupGoals += goals } else { a.leagueApps += played; a.leagueGoals += goals } a.totalGoals += goals; return a }, {leagueApps:0,cupApps:0,leagueGoals:0,cupGoals:0,totalGoals:0})
   }
   const rows=playerMatches.filter(row=>playerMatchPlayerId(row)===player.id&&normalizeSeason(row.season)===normalizeSeason(season))
   return rows.reduce((a,row)=>{const c=rowCompetition(row),played=num(row.played??1),goals=num(row.goals);if(c==='Cup'){a.cupApps+=played;a.cupGoals+=goals}else{a.leagueApps+=played;a.leagueGoals+=goals}a.totalGoals+=goals;return a},{leagueApps:0,cupApps:0,leagueGoals:0,cupGoals:0,totalGoals:0})
