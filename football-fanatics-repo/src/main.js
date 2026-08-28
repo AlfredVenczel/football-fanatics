@@ -107,6 +107,16 @@ function seasonNames() {
   return [...new Set([...Object.keys(standings), ...seasons.map(row => row.season), ...playerSeasons.map(row => row.season), ...playerMatches.map(row => row.season), ...matches.map(matchSeason)].filter(Boolean).map(normalizeSeason))].sort().reverse()
 }
 
+function latestPlayerSeasonRank(id) {
+  const seasonOrder = seasonNames()
+  const activeSeasons = [...new Set([
+    ...playerMatches.filter(row => playerMatchPlayerId(row) === id).map(row => normalizeSeason(row.season)),
+    ...playerSeasons.filter(row => row.player_id === id).map(row => normalizeSeason(row.season))
+  ].filter(Boolean))]
+  const ranks = activeSeasons.map(season => seasonOrder.indexOf(season)).filter(rank => rank >= 0)
+  return ranks.length ? Math.min(...ranks) : Number.POSITIVE_INFINITY
+}
+
 function invertResult(result) { return result === 'W' ? 'L' : result === 'L' ? 'W' : result }
 function resultForTeam(match, team) {
   const result = matchResult(match)
@@ -277,9 +287,10 @@ function playerStatRows(season='all',sort='apps') {
   const rows=source.map(player=>{
     const summary=playerStatsForSeason(player,season)
     const detail=filtered.filter(row=>playerMatchPlayerId(row)===player.id)
-    return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:detail.reduce((a,row)=>a+num(row.yellow_cards??row.yellowCards??row.stat1??0),0),yellowRed:detail.reduce((a,row)=>a+num(row.yellow_red_cards??row.yellowRedCards??row.stat2??0),0),red:detail.reduce((a,row)=>a+num(row.red_cards??row.redCards??row.stat3??0),0)}
+    return {player,played:summary.leagueApps+summary.cupApps,goals:summary.totalGoals,yellow:detail.reduce((a,row)=>a+num(row.yellow_cards??row.yellowCards??row.stat1??0),0),yellowRed:detail.reduce((a,row)=>a+num(row.yellow_red_cards??row.yellowRedCards??row.stat2??0),0),red:detail.reduce((a,row)=>a+num(row.red_cards??row.redCards??row.stat3??0),0),latestSeasonRank:latestPlayerSeasonRank(player.id)}
   })
-  rows.sort((a,b)=>sort==='name'?a.player.name.localeCompare(b.player.name):sort==='goals'?b.goals-a.goals||b.played-a.played:sort==='yellow'?b.yellow-a.yellow||b.played-a.played:sort==='yellowRed'?b.yellowRed-a.yellowRed||b.played-a.played:sort==='red'?b.red-a.red||b.played-b.played:b.played-a.played||b.goals-a.goals)
+  const statSort = (a,b) => sort==='name'?a.player.name.localeCompare(b.player.name):sort==='goals'?b.goals-a.goals||b.played-a.played:sort==='yellow'?b.yellow-a.yellow||b.played-a.played:sort==='yellowRed'?b.yellowRed-a.yellowRed||b.played-a.played:sort==='red'?b.red-a.red||b.played-b.played:b.played-a.played||b.goals-a.goals
+  rows.sort((a,b)=>season==='all' ? a.latestSeasonRank-b.latestSeasonRank || statSort(a,b) : statSort(a,b))
   return rows
 }
 
