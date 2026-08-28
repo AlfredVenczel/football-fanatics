@@ -20,7 +20,7 @@ create table if not exists public.teams (
   goals_against integer,
   points integer,
   created_at timestamptz not null default now(),
-  unique (name, season)
+  unique (name, season, stage)
 );
 
 grant select on public.teams to anon;
@@ -30,6 +30,19 @@ grant usage, select on sequence public.teams_id_seq to authenticated;
 alter table public.teams add column if not exists notes text default '';
 alter table public.teams add column if not exists stage text not null default 'main';
 update public.teams set stage = 'main' where stage is null;
+
+-- A team can exist once in the regular table and again in the Play out table for the same season.
+alter table public.teams drop constraint if exists teams_name_season_key;
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'teams_name_season_stage_key'
+      and conrelid = 'public.teams'::regclass
+  ) then
+    alter table public.teams add constraint teams_name_season_stage_key unique (name, season, stage);
+  end if;
+end $$;
 alter table public.teams add column if not exists played integer;
 alter table public.teams add column if not exists wins integer;
 alter table public.teams add column if not exists draws integer;
