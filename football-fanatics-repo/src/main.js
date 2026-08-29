@@ -1,3 +1,5 @@
+import { inject } from '@vercel/analytics'
+inject()
 import './styles.css'
 import { supabase } from './lib/supabase.js'
 import staticPlayers from './players.json'
